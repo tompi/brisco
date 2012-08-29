@@ -22,3 +22,28 @@ describe('brisco.Vulnerabillity', function() {
   });
 });
 
+describe('brisco.Board', function() {
+  it('should say None vulnerable for board 1', function() {
+    expect(brisco.Board.GetVulnerability(1)).
+      toEqual(brisco.Vulnerability.None );
+  });
+  it('should say NorthSouth vulnerable for board 5', function() {
+    expect(brisco.Board.GetVulnerability(5)).
+      toEqual(brisco.Vulnerability.NorthSouth );
+  });
+  it('should say dealer east for board 6', function() {
+    expect(brisco.Board.GetDealer(6)).
+      toEqual(brisco.Direction.East);
+  });
+  it('should say dealer south for board 15', function() {
+    expect(brisco.Board.GetDealer(15)).
+      toEqual(brisco.Direction.South);
+  });
+});
+
+describe('brisco.Suit', function() {
+  it('should say spades is major', function() {
+    expect(brisco.Suit.IsMajor(brisco.Suit.Spades)).
+      toEqual(true);
+  });
+});

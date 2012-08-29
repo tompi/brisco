@@ -64,9 +64,9 @@
       NorthSouth: 3,
       EastWest: 4,
       IsVulnerable: function(vulnerability, direction) {
-        if (vulnerability === None) return false;
-        if (vulnerability === Both) return true;
-        if (vulnerability === NorthSouth) 
+        if (vulnerability === this.None) return false;
+        if (vulnerability === this.Both) return true;
+        if (vulnerability === this.NorthSouth) 
           return brisco.Direction.IsNorthSouth(direction);
         return !brisco.Direction.IsNorthSouth(direction);
       }

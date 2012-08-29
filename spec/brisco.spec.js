@@ -10,3 +10,15 @@ describe('brisco.Direction', function() {
       toEqual(false);
   });
 });
+
+describe('brisco.Vulnerabillity', function() {
+  it('should say north is vulnerable when both', function() {
+    expect(brisco.Vulnerability.IsVulnerable(brisco.Vulnerability.Both, brisco.Direction.North)).
+      toEqual(true);
+  });
+  it('should say north is not vulnerable when eastwest', function() {
+    expect(brisco.Vulnerability.IsVulnerable(brisco.Vulnerability.EastWest, brisco.Direction.North)).
+      toEqual(false);
+  });
+});
+

@@ -1,12 +1,12 @@
-var brisco = require('../Game/Game');
+var brisco = require('../lib/Game');
 
 describe('brisco.Direction', function() {
   it('should say north is northsouth', function() {
-    expect(brisco.Direction.isNorthSouth(brisco.Direction.North)).
+    expect(brisco.isNorthSouth(brisco.Direction.North)).
       toEqual(true);
   });
   it('should say west is not northsouth', function() {
-    expect(brisco.Direction.isNorthSouth(brisco.Direction.West)).
+    expect(brisco.isNorthSouth(brisco.Direction.West)).
       toEqual(false);
   });
 });
@@ -135,6 +135,22 @@ describe('brisco.Hand', function() {
   });
   it('should say return heart ace as heart-suit', function() {
     expect(hand.getCardsWithinSuit(brisco.Suit.Hearts).equals(hA)).
+      toEqual(true);
+  });
+});
+
+describe('brisco.Contract', function() {
+  var c = Object.create(brisco.Contract);
+  c.Level = 3;
+  c.Suit = brisco.Suit.Diamonds;
+  c.Tricks = 10;
+  
+  it('should say 3D with 10 is 1 overtrick', function() {
+    expect(brisco.getOverTricks(c)).
+      toEqual(1);
+  });
+  it('should say 3D with 10 is made contract', function() {
+    expect(brisco.getContractMade(c)).
       toEqual(true);
   });
 });

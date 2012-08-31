@@ -1,0 +1,1 @@
+{"ts":1346355017932,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"var Card = {\n    suit: null,\n    denomination: null,\n    equals: function(other) {\n        return other.instanceof(other) \n            && this.suit === other.suit \n            && this.denomination === other.suit;\n    }\n};\n"]],"start1":0,"start2":0,"length1":0,"length2":222}]],"length":222}

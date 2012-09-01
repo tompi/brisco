@@ -1,0 +1,17 @@
+.hero-unit {
+  margin-top: 50px;
+  box-shadow: 3px 3px 5px 6px #a9a9a9;
+}
+
+.hero-unit h1 {
+  text-shadow: 2px 2px 0 #a9a9a9;
+  padding-bottom: 30px;
+}
+
+.hero-unit p {
+  padding-top: 20px;
+}
+
+.center {
+  text-align: center;
+}

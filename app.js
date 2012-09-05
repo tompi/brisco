@@ -4,7 +4,7 @@
 
 var express = require('express'),
     routes = require('./routes'),
-    config = require('./config.json'),
+    config = require('./config'),
     http = require('http'),
     path = require('path'),
     passport = require('passport'),

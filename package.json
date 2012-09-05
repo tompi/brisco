@@ -8,7 +8,8 @@
     "stylus": "*",
     "ejs": "*",
     "passport": "*",
-    "passport-google-oauth": "*"
+    "passport-google-oauth": "*",
+    "passport-facebook": "*"
   },
   "engines": {
     "node": "0.8.x",

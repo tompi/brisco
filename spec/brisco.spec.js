@@ -55,7 +55,7 @@ describe('brisco.Suit', function() {
       toEqual(true);
   });
   it('should say 30 points per trick for notrump', function() {
-    expect(brisco.Suit.pointsPerTrick(brisco.Suit.Notrump)).
+    expect(brisco.Suit.getPointsPerTrick(brisco.Suit.Notrump)).
       toEqual(30);
   });
 });

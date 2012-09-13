@@ -1,3 +1,4 @@
+/* Front page */
 body { padding-top: 50px; }
 
 .hero-unit {
@@ -18,24 +19,39 @@ body { padding-top: 50px; }
   text-align: center;
 }
 
-
-.nav-list > li > a {
-display: block;
-margin: 0 0 -1px;
-padding: 8px 14px;
-border: 1px solid #E5E5E5;
-}
-
 .right { float: right; }
 
-.red { color: red; }
 
-.bid-pad div.span3 {
+/* tournaments */
+.nav-list > li > a {
+    display: block;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #E5E5E5;
+}
+
+.pass { color: #FFF; background-color: #00bb4d; }
+.doubled { color: #FFF; background-color: #ff504c; }
+.redoubled { color: #FFF; background-color: #1d1bff; }
+ 
+.spades { color: #071087; background-color: #c3cceb; }
+.hearts { color: #d72b21; background-color: #ffe2e8; }
+.diamonds { color: #ef6c1a; background-color: #ffe5d0; }
+.clubs { color: #28552a; background-color: #d4ded5; }
+.notrump { color: #000000; background-color: #cfcfca; }
+
+.bid-pad div.bidbutton {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 2.5%;
     text-align: center;
     font-weight: bold;
     font-size: 2em;
-    border: 1px solid #E5E5E5;
+    border: 2px solid #E5E5E5;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.bid-pad div.bidbutton:hover {
+    border: 2px solid #d58604;
 }

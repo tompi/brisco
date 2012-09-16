@@ -30,6 +30,9 @@ body { padding-top: 50px; }
     border: 1px solid #E5E5E5;
 }
 
+.table td.number,.table th.number { text-align: right; }
+.table td.center, .table th.center { text-align: center; }
+
 .pass { color: #FFF; background-color: #00bb4d; }
 .doubled { color: #FFF; background-color: #ff504c; }
 .redoubled { color: #FFF; background-color: #1d1bff; }
@@ -46,12 +49,24 @@ body { padding-top: 50px; }
     margin-bottom: 2.5%;
     text-align: center;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5em;
     border: 2px solid #E5E5E5;
     border-radius: 7px;
     cursor: pointer;
 }
 
+.bid-pad div.contract {
+    font-size: 1.8em;
+}
+
 .bid-pad div.bidbutton:hover {
+    border: 2px dotted #d58604;
+}
+
+.bid-pad div.bidbutton.active {
     border: 2px solid #d58604;
+}
+
+table.contracts tbody tr:hover {
+    cursor: pointer;
 }

@@ -9,7 +9,8 @@
     "ejs": "*",
     "passport": "*",
     "passport-google-oauth": "*",
-    "passport-facebook": "*"
+    "passport-facebook": "*",
+    "passport-linkedin": "*"
   },
   "engines": {
     "node": "0.8.x",

@@ -11,6 +11,10 @@ var config = {
     FACEBOOK_APP_SECRET: "6f75a105bfcceeca498c1b541a2b0d22",
     FACEBOOK_CALLBACK_URL: LOCAL_URL + "/auth/facebook/callback", 
     
+    LINKEDIN_API_KEY: "4tc649z2zup3",
+    LINKEDIN_SECRET_KEY: "PekXOOYUQrRTcqFN",
+    LINKEDIN_CALLBACK_URL: LOCAL_URL + "/auth/linkedin/callback", 
+    
     COOKIE_SECRET: "EAEW62JRUFS70+TRWQ1232"
 };
 

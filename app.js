@@ -79,6 +79,8 @@ var app = express();
 app.configure(function() {
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
+    app.engine('ejs',require('ejs-locals'));
+    app.locals._layoutFile = 'layout.ejs';
     app.set('view engine', 'ejs');
     app.use(express.favicon());
     app.use(express.logger('dev'));
@@ -133,13 +135,7 @@ function(req, res) {
     // function will not be called.
 });
 
-app.get('/oauth2callback',
-passport.authenticate('google', {
-    failureRedirect: '/login'
-}),
-function(req, res) {
-    res.redirect('/account-json');
-});
+
 
 app.get('/auth/linkedin',
   passport.authenticate('linkedin'),
@@ -148,17 +144,11 @@ app.get('/auth/linkedin',
     // function will not be called.
   });
 
-app.get('/auth/linkedin/callback', 
-  passport.authenticate('linkedin', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.redirect('/account-json');
-  });
+app.get('/auth/linkedin/callback',   passport.authenticate('linkedin', { failureRedirect: '/login' }),  routes.loggedin);
 
-app.get('/auth/facebook/callback',
-passport.authenticate('facebook', {failureRedirect: '/login'}),
-                        function(req, res) {
-                            res.redirect('/account-json');
-                        });
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/login'}),routes.loggedin);
+
+app.get('/oauth2callback', passport.authenticate('google', {failureRedirect: '/login'}),routes.loggedin);
 
 app.get('/logout', function(req, res) {
     req.logout();

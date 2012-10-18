@@ -1,7 +1,2 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
-node_modules/
+.c9revisions
+node_modules

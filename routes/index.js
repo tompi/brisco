@@ -2,11 +2,13 @@
 /*
  * GET home page.
  */
+ 
+ function renderFunction(view) {
+     return function(req, res) {
+         res.render(view, { user: req.user });
+     };
+ }
 
-exports.index = function(req, res){
-  res.render('index', { title: 'DupliScore' });
-};
+exports.index = renderFunction('index');
 
-exports.start = function(req, res) {
-    res.render('start');
-};
+exports.start = renderFunction('start');

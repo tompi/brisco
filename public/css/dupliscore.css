@@ -36,6 +36,7 @@ body { padding-top: 50px; }
 .pass { color: #FFF; background-color: #00bb4d; }
 .doubled { color: #FFF; background-color: #ff504c; }
 .redoubled { color: #FFF; background-color: #1d1bff; }
+.red { color: red; }
  
 .spades { color: #071087; background-color: #c3cceb; }
 .hearts { color: #d72b21; background-color: #ffe2e8; }
@@ -43,6 +44,8 @@ body { padding-top: 50px; }
 .clubs { color: #28552a; background-color: #d4ded5; }
 .notrump { color: #000000; background-color: #cfcfca; }
 
+
+/* Boards */
 .bid-pad div.bidbutton {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -69,4 +72,9 @@ body { padding-top: 50px; }
 
 table.contracts tbody tr:hover {
     cursor: pointer;
+}
+
+.editBoard i {
+    float: right;
+    color: #CCD;
 }

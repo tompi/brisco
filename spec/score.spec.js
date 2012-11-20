@@ -1,5 +1,5 @@
-var brisco = require('../lib/Game');
-var score = require('../lib/Score');
+var brisco = require('../public/js/brisco/briscoGame');
+var score = require('../public/js/brisco/briscoScore');
 
 describe('score', function() {
 

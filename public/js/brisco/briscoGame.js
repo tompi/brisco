@@ -1,19 +1,19 @@
 if (typeof _ === "undefined") {
     var _ = require("underscore");
 }
-(function() {
-    var brisco = {};
+(function(root) {
+    var briscoGame = {};
     if (typeof exports !== 'undefined') {
         if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = brisco;
+            exports = module.exports = briscoGame;
         }
-        exports.brisco = brisco;
+        exports.briscoGame = briscoGame;
     }
     else {
-        root['brisco'] = brisco;
+        root['briscoGame'] = briscoGame;
     }
 
-    brisco.Board = {
+    briscoGame.Board = {
         getVulnerability: function(boardNumber) {
             var vulnMod = boardNumber % 16;
             switch (vulnMod) {
@@ -21,19 +21,19 @@ if (typeof _ === "undefined") {
             case 8:
             case 11:
             case 14:
-                return brisco.Vulnerability.None;
+                return briscoGame.Vulnerability.None;
             case 4:
             case 7:
             case 10:
             case 13:
-                return brisco.Vulnerability.Both;
+                return briscoGame.Vulnerability.Both;
             case 3:
             case 6:
             case 9:
             case 0:
-                return brisco.Vulnerability.EastWest;
+                return briscoGame.Vulnerability.EastWest;
             default:
-                return brisco.Vulnerability.NorthSouth;
+                return briscoGame.Vulnerability.NorthSouth;
             }
         },
 
@@ -41,28 +41,28 @@ if (typeof _ === "undefined") {
             var dealerMod = boardNumber % 4;
             switch (dealerMod) {
             case 1:
-                return brisco.Direction.North;
+                return briscoGame.Direction.North;
             case 2:
-                return brisco.Direction.East;
+                return briscoGame.Direction.East;
             case 3:
-                return brisco.Direction.South;
+                return briscoGame.Direction.South;
             default:
-                return brisco.Direction.West;
+                return briscoGame.Direction.West;
             }
         }
     };
 
-    brisco.Direction = {
+    briscoGame.Direction = {
         North: 1,
         South: 2,
         East: 3,
         West: 4
     };
-    brisco.isNorthSouth = function(direction) {
-        return direction === brisco.Direction.North || direction === brisco.Direction.South;
+    briscoGame.isNorthSouth = function(direction) {
+        return direction === briscoGame.Direction.North || direction === briscoGame.Direction.South;
     };
 
-    brisco.Vulnerability = {
+    briscoGame.Vulnerability = {
         None: 1,
         Both: 2,
         NorthSouth: 3,
@@ -70,12 +70,12 @@ if (typeof _ === "undefined") {
         isVulnerable: function(vulnerability, direction) {
             if (vulnerability === this.None) return false;
             if (vulnerability === this.Both) return true;
-            if (vulnerability === this.NorthSouth) return brisco.isNorthSouth(direction);
-            return !brisco.isNorthSouth(direction);
+            if (vulnerability === this.NorthSouth) return briscoGame.isNorthSouth(direction);
+            return !briscoGame.isNorthSouth(direction);
         }
     };
 
-    brisco.Suit = {
+    briscoGame.Suit = {
         Clubs: 1,
         Diamonds: 2,
         Hearts: 3,
@@ -99,7 +99,7 @@ if (typeof _ === "undefined") {
         }
     };
 
-    brisco.Denomination = {
+    briscoGame.Denomination = {
         Ace: 14,
         King: 13,
         Queen: 12,
@@ -117,7 +117,7 @@ if (typeof _ === "undefined") {
         Unknown: -2
     };
 
-    brisco.Card = {
+    briscoGame.Card = {
         Denomination: null,
         Suit: null,
         equals: function(other) {
@@ -126,7 +126,7 @@ if (typeof _ === "undefined") {
         }
     };
 
-    brisco.Bid = {
+    briscoGame.Bid = {
         pass: false,
         level: -1,
         suit: null,
@@ -138,13 +138,13 @@ if (typeof _ === "undefined") {
         yourTurn: false
     };
 
-    brisco.Auction = {
+    briscoGame.Auction = {
         bids: [],
         explanations: [],
         dealer: null
     };
 
-    brisco.Hand = {
+    briscoGame.Hand = {
         Cards: [],
 
         isComplete: function() {
@@ -185,7 +185,7 @@ if (typeof _ === "undefined") {
         }
     };
 
-    brisco.Deal = {
+    briscoGame.Deal = {
         West: null,
         North: null,
         East: null,
@@ -193,13 +193,13 @@ if (typeof _ === "undefined") {
 
         getHand: function(direction) {
             switch (direction) {
-            case brisco.Direction.West:
+            case briscoGame.Direction.West:
                 return this.West;
-            case brisco.Direction.North:
+            case briscoGame.Direction.North:
                 return this.North;
-            case brisco.Direction.East:
+            case briscoGame.Direction.East:
                 return this.East;
-            case brisco.Direction.South:
+            case briscoGame.Direction.South:
                 return this.South;
             default:
                 return null;
@@ -207,16 +207,16 @@ if (typeof _ === "undefined") {
         },
         setHand: function(direction, hand) {
             switch (direction) {
-            case brisco.Direction.West:
+            case briscoGame.Direction.West:
                 this.West = hand;
                 break;
-            case brisco.Direction.North:
+            case briscoGame.Direction.North:
                 this.North = hand;
                 break;
-            case brisco.Direction.East:
+            case briscoGame.Direction.East:
                 this.East = hand;
                 break;
-            case brisco.Direction.South:
+            case briscoGame.Direction.South:
                 this.South = hand;
                 break;
             default:
@@ -233,7 +233,7 @@ if (typeof _ === "undefined") {
         }
     };
 
-    brisco.BidQuality = {
+    briscoGame.BidQuality = {
         VeryGood: 1,
         Good: 2,
         Poor: 3,
@@ -242,21 +242,21 @@ if (typeof _ === "undefined") {
         Questionable: 6
     };
 
-    brisco.getHandMissing = function(hand1, hand2, hand3) {
+    briscoGame.getHandMissing = function(hand1, hand2, hand3) {
         if (hand1 === null || hand2 === null || hand3 === null) {
             return null;
         }
         if (!hand1.isComplete() || !hand2.isComplete() || !hand3.isComplete()) {
             return null;
         }
-        var missingHand = Object.create(brisco.Hand);
-        for (var s in brisco.Suit) {
-            var suit = brisco.Suit[s];
-            for (var d in brisco.Denomination) {
-                var denomination = brisco.Denomination[d];
-                if (denomination !== brisco.Denomination.Small && d !== brisco.Denomination.Unknown) {
+        var missingHand = Object.create(briscoGame.Hand);
+        for (var s in briscoGame.Suit) {
+            var suit = briscoGame.Suit[s];
+            for (var d in briscoGame.Denomination) {
+                var denomination = briscoGame.Denomination[d];
+                if (denomination !== briscoGame.Denomination.Small && d !== briscoGame.Denomination.Unknown) {
 
-                    var c = Object.create(brisco.Card);
+                    var c = Object.create(briscoGame.Card);
                     c.Suit = suit;
                     c.Denomination = denomination;
                     if (!hand1.contains(c) && !hand2.contains(c) && !hand3.contains(c)) {
@@ -268,7 +268,7 @@ if (typeof _ === "undefined") {
         return missingHand;
     };
 
-    brisco.Contract = {
+    briscoGame.Contract = {
         Level: 0,
         Suit: null,
         Doubled: false,
@@ -278,21 +278,21 @@ if (typeof _ === "undefined") {
         Lead: null
     };
 
-    brisco.getOverTricks = function(contract) {
+    briscoGame.getOverTricks = function(contract) {
         return contract.Tricks - (contract.Level + 6);
     };
 
-    brisco.getContractMade = function(contract) {
-        return brisco.getOverTricks(contract) >= 0;
+    briscoGame.getContractMade = function(contract) {
+        return briscoGame.getOverTricks(contract) >= 0;
     };
 
-    brisco.isSmallSlam = function(contract) {
+    briscoGame.isSmallSlam = function(contract) {
         return contract.Level === 6;
     };
 
-    brisco.isGrandSlam = function(contract) {
+    briscoGame.isGrandSlam = function(contract) {
         return contract.Level === 7;
     };
     // Current version.
-    brisco.VERSION = '0.0.2';
-}).call(this);
+    briscoGame.VERSION = '0.0.2';
+})(this);

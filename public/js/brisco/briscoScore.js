@@ -1,15 +1,17 @@
-var brisco = require('./Game');
+if (typeof briscoGame === "undefined") {
+    var briscoGame = require('./briscoGame');
+}
 
-(function() {
-    var score = {};
+(function(root) {
+    var briscoScore = {};
     if (typeof exports !== 'undefined') {
         if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = score;
+            exports = module.exports = briscoScore;
         }
-        exports.brisco = score;
+        exports.briscoScore = briscoScore;
     }
     else {
-        root['score'] = score;
+        root['briscoScore'] = briscoScore;
     }
     
     var DOUBLED_NOZONE = [ -100, -300, -500, -800,-1100, -1400, -1700, -2000, -2300, -2600, -2900, -3200, -3500 ];
@@ -38,51 +40,51 @@ var brisco = require('./Game');
 			[ 45, 50, 55, 60, 64, 72, 79, 85, 91, 97, 102, 112 ],
 			[ 51, 55, 61, 66, 71, 79, 87, 94, 100, 106, 112, 123 ]];
 
-    score.getNorthSouthPointsWithBoardNo = function(contract, boardNumber) {
-		var direction = brisco.Direction.North;
+    briscoScore.getNorthSouthPointsWithBoardNo = function(contract, boardNumber) {
+		var direction = briscoGame.Direction.North;
 		if (contract.Player !== null) {
 			direction = contract.Player;
 		}
-		var vulnerability = brisco.Board.getVulnerability(boardNumber);
-        var vulnerable = brisco.Vulnerability.isVulnerable(vulnerability, direction);
-		return score.getNorthSouthPointsWithVulnerability(contract, vulnerable);
+		var vulnerability = briscoGame.Board.getVulnerability(boardNumber);
+        var vulnerable = briscoGame.Vulnerability.isVulnerable(vulnerability, direction);
+		return briscoScore.getNorthSouthPointsWithVulnerability(contract, vulnerable);
 	};
 
-	score.getNorthSouthPointsWithVulnerability = function(contract, vulnerable) {
-		var points = score.getPoints(contract, vulnerable);
-		// Check if this score was indeed for east-west :)
+	briscoScore.getNorthSouthPointsWithVulnerability = function(contract, vulnerable) {
+		var points = briscoScore.getPoints(contract, vulnerable);
+		// Check if this briscoScore was indeed for east-west :)
 		if (contract.Player !== null) {
-			if (!brisco.isNorthSouth(contract.Player)) {
+			if (!briscoGame.isNorthSouth(contract.Player)) {
 				points = points * -1;
 			}
 		}
 		return points;
 	};
 
-	score.getPoints = function(contract, vulnerable) {
+	briscoScore.getPoints = function(contract, vulnerable) {
 		if (contract.Level < 1) {
 			return 0;
 		}
 
 		var points = 0;
 
-		if (brisco.getContractMade(contract)) {
-			points = score.getContractPoints(contract);
-			points += score.getLevelBonus(contract, vulnerable, points, false);
-			points += score.getInsultBonus(contract);
-			points += score.getOverTrickPoints(contract, vulnerable);
+		if (briscoGame.getContractMade(contract)) {
+			points = briscoScore.getContractPoints(contract);
+			points += briscoScore.getLevelBonus(contract, vulnerable, points, false);
+			points += briscoScore.getInsultBonus(contract);
+			points += briscoScore.getOverTrickPoints(contract, vulnerable);
 		} else {
-			points = score.getPenalty(contract, vulnerable);
+			points = briscoScore.getPenalty(contract, vulnerable);
 		}
 		return points;
 	};
 
-	score.getContractPoints = function(contract) {
-		if (!brisco.getContractMade(contract)) {
+	briscoScore.getContractPoints = function(contract) {
+		if (!briscoGame.getContractMade(contract)) {
 			return 0;
 		}
-		var extraPoints = brisco.Suit.getExtraPointsForFirstTrick(contract.Suit);
-		var basePoints = brisco.Suit.getPointsPerTrick(contract.Suit);
+		var extraPoints = briscoGame.Suit.getExtraPointsForFirstTrick(contract.Suit);
+		var basePoints = briscoGame.Suit.getPointsPerTrick(contract.Suit);
 
 		if (contract.ReDoubled) {
 			extraPoints *= 4;
@@ -95,23 +97,23 @@ var brisco = require('./Game');
 		return basePoints * contract.Level + extraPoints;
 	};
 
-	score.getLevelBonus = function(contract, vulnerable, contractPoints, rubberScoring) {
+	briscoScore.getLevelBonus = function(contract, vulnerable, contractPoints, rubberScoring) {
 		if (contractPoints < 100) {
 			return rubberScoring ? 0 : 50;
 		}
 		// At least game:
 		var points = rubberScoring ? 0 : vulnerable ? 500 : 300;
 
-		if (brisco.isGrandSlam(contract)) {
+		if (briscoGame.isGrandSlam(contract)) {
 			points += vulnerable ? 1500 : 1000;
-		} else if (brisco.isSmallSlam(contract)) {
+		} else if (briscoGame.isSmallSlam(contract)) {
 			points += vulnerable ? 750 : 500;
 		}
 		return points;
 	};
 
-	score.getInsultBonus = function(contract) {
-		if (brisco.getContractMade(contract)) {
+	briscoScore.getInsultBonus = function(contract) {
+		if (briscoGame.getContractMade(contract)) {
 			if (contract.ReDoubled) {
 				return 100;
 			} else if (contract.Doubled) {
@@ -121,8 +123,8 @@ var brisco = require('./Game');
 		return 0;
 	};
 
-	score.getOverTrickPoints = function(contract, vulnerable) {
-		var overTricks = brisco.getOverTricks(contract);
+	briscoScore.getOverTrickPoints = function(contract, vulnerable) {
+		var overTricks = briscoGame.getOverTricks(contract);
 		if (overTricks < 1) {
 			return 0;
 		} else {
@@ -131,41 +133,41 @@ var brisco = require('./Game');
 			} else if (contract.Doubled) {
 				return overTricks * (vulnerable ? 200 : 100);
 			} else {
-				return overTricks * brisco.Suit.getPointsPerTrick(contract.Suit);
+				return overTricks * briscoGame.Suit.getPointsPerTrick(contract.Suit);
 			}
 		}
 	};
 
-	score.getPenalty = function(contract, vulnerable) {
-		if (brisco.getContractMade(contract)) {
+	briscoScore.getPenalty = function(contract, vulnerable) {
+		if (briscoGame.getContractMade(contract)) {
 			return 0;
 		}
-		var diff = brisco.getOverTricks(contract);
-		var nsScore = 0;
+		var diff = briscoGame.getOverTricks(contract);
+		var nsbriscoScore = 0;
 		var ix = -1 * (diff + 1);
 		if (contract.ReDoubled) {
 			if (vulnerable) {
-				nsScore = REDOUBLED_ZONE[ix];
+				nsbriscoScore = REDOUBLED_ZONE[ix];
 			} else {
-				nsScore = REDOUBLED_NOZONE[ix];
+				nsbriscoScore = REDOUBLED_NOZONE[ix];
 			}
 		} else if (contract.Doubled) {
 			if (vulnerable) {
-				nsScore = DOUBLED_ZONE[ix];
+				nsbriscoScore = DOUBLED_ZONE[ix];
 			} else {
-				nsScore = DOUBLED_NOZONE[ix];
+				nsbriscoScore = DOUBLED_NOZONE[ix];
 			}
 		} else {
 			if (vulnerable) {
-				nsScore = diff * 100;
+				nsbriscoScore = diff * 100;
 			} else {
-				nsScore = diff * 50;
+				nsbriscoScore = diff * 50;
 			}
 		}
-		return nsScore;
+		return nsbriscoScore;
 	};
     
-    score.getNorthSouthIMP = function(northPointsTableA, northPointsTableB) {
+    briscoScore.getNorthSouthIMP = function(northPointsTableA, northPointsTableB) {
 		var diff = northPointsTableA - northPointsTableB;
 		if (diff === 0) {
 			return 0;
@@ -186,13 +188,13 @@ var brisco = require('./Game');
 		return ix;
 	};
 
-	score.getNorthSouthIMPWithBoardNumber = function(boardNumber, contractTableA, contractTableB) {
-		return score.getNorthSouthIMP(
-				score.getNorthSouthPointsWithBoardNo(contractTableA, boardNumber),
-				score.getNorthSouthPointsWithBoardNo(contractTableB, boardNumber));
+	briscoScore.getNorthSouthIMPWithBoardNumber = function(boardNumber, contractTableA, contractTableB) {
+		return briscoScore.getNorthSouthIMP(
+				briscoScore.getNorthSouthPointsWithBoardNo(contractTableA, boardNumber),
+				briscoScore.getNorthSouthPointsWithBoardNo(contractTableB, boardNumber));
 	};
     
-    score.getWBFVP = function(imps, boards) {
+    briscoScore.getWBFVP = function(imps, boards) {
 		if (imps < 0) {
 			imps = imps * -1;
 		}
@@ -220,4 +222,4 @@ var brisco = require('./Game');
 	}
 
 
-}).call(this);
+})(this);

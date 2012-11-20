@@ -1,4 +1,4 @@
-var brisco = require('../lib/Game');
+var brisco = require('../public/js/brisco/briscoGame');
 
 describe('brisco.Direction', function() {
   it('should say north is northsouth', function() {

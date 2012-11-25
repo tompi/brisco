@@ -19,7 +19,13 @@ var config = {
     
     REDIS_HOST: "ray.redistogo.com",
     REDIS_PORT: "9541",
-    REDIS_PASSWORD: "67ccc17f54b22b57598efb51503c85ea"
+    REDIS_PASSWORD: "67ccc17f54b22b57598efb51503c85ea",
+    
+    MONGO_HOST: "ds031647.mongolab.com",
+    MONGO_PORT: 31647,
+    MONGO_DB: "brisco-dev",
+    MONGO_USER: "brisco",
+    MONGO_PASSWD: "Okt12Okt"
 };
 
 var config_debug = {
@@ -39,7 +45,13 @@ var config_debug = {
     
     REDIS_HOST: "ray.redistogo.com",
     REDIS_PORT: "9541",
-    REDIS_PASSWORD: "67ccc17f54b22b57598efb51503c85ea"
+    REDIS_PASSWORD: "67ccc17f54b22b57598efb51503c85ea",
+    
+    MONGO_HOST: "ds031647.mongolab.com",
+    MONGO_PORT: 31647,
+    MONGO_DB: "brisco-dev",
+    MONGO_USER: "brisco",
+    MONGO_PASSWD: "Okt12Okt"
 }    
 
 module.exports = debug ? config_debug : config;

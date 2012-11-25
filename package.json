@@ -12,7 +12,8 @@
     "passport-google-oauth": "*",
     "passport-facebook": "*",
     "passport-linkedin": "*",
-    "redis": "*"
+    "redis": "*",
+    "mongodb": "*"
   },
   "engines": {
     "node": "0.8.x",

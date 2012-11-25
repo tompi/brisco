@@ -9,7 +9,8 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     passport = require('passport'),
-    auth = require('./auth');
+    auth = require('./auth'),
+    db = require('./db');
 
 
 var app = express();
@@ -33,7 +34,10 @@ app.configure(function() {
     app.use(express.static(path.join(__dirname, 'public')));
 });
 
-auth.init(app, config, routes, passport);
+var db = db.init(app, config);
+
+auth.init(app, config, routes, passport, db);
+
 
 app.configure('development', function() {
     app.use(express.errorHandler());

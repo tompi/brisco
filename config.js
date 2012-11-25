@@ -15,7 +15,11 @@ var config = {
     LINKEDIN_SECRET_KEY: "PekXOOYUQrRTcqFN",
     LINKEDIN_CALLBACK_URL: LOCAL_URL + "/auth/linkedin/callback", 
     
-    COOKIE_SECRET: "EAEW62JRUFS70+TRWQ1232"
+    COOKIE_SECRET: "EAEW62JRUFS70+TRWQ1232",
+    
+    REDIS_HOST: "ray.redistogo.com",
+    REDIS_PORT: "9541",
+    REDIS_PASSWORD: "67ccc17f54b22b57598efb51503c85ea"
 };
 
 var config_debug = {
@@ -31,7 +35,11 @@ var config_debug = {
     LINKEDIN_SECRET_KEY: "PekXOOYUQrRTcqFN",
     LINKEDIN_CALLBACK_URL: LOCAL_URL + "/auth/linkedin/callback",     
     
-    COOKIE_SECRET: "EAEW62JRUFS70+TRWQ1232"
+    COOKIE_SECRET: "EAEW62JRUFS70+TRWQ1232",
+    
+    REDIS_HOST: "ray.redistogo.com",
+    REDIS_PORT: "9541",
+    REDIS_PASSWORD: "67ccc17f54b22b57598efb51503c85ea"
 }    
 
 module.exports = debug ? config_debug : config;

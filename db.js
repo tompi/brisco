@@ -13,37 +13,52 @@ exports.init = function(app, config) {
     });
     var mongoDb = new MongoDb(config.MONGO_DB, mongoServer);
 
-    function openMongoConnection(next) {
-        mongoDb.open(function(err, client) {
-            client.authenticate(config.MONGO_USER, config.MONGO_PASSWD, function(err, success) {
-                if (!err) next(client);
-            });
+    var mongoClient;
+
+    mongoDb.open(function(err, client) {
+        client.authenticate(config.MONGO_USER, config.MONGO_PASSWD, function(err, success) {
+            if (!err) mongoClient = client;
         });
-    }
+    });
 
     redisclient.auth(config.REDIS_PASSWORD);
 
-    me.createTournament = function(next) {
-        redisclient.incr("tournament", function(err, id) {
-            next(id);
+    me.createTournament = function(userId, next) {
+        mongoClient.collection('tournaments').insert({
+            createdBy: userId,
+            createdTime: new Date()
+        }, {
+            safe: true
+        }, function(err, result) {
+            next(result[0]._id);
+        })
+    };
+
+    me.findAllTournaments = function(next) {
+        mongoClient.collection('tournaments').find().toArray(function(err, items) {
+            next(items);
         });
     };
 
     me.findOrCreateUser = function(profile, next) {
-        openMongoConnection(function(db) {
-           db.collection('users', function(err, collection) {
-               collection.findOne({provider: profile.provider, id: profile.id}, function(err, item) {
-                   if (item) {
-                       item.briscoId = item._id;
-                       next(item);
-                   } else {
-                        collection.insert(profile, {safe: true}, function(err,result) {
-                            profile.briscoId = result[0]._id;
-                            next(profile);
-                        }); 
-                   }
-               });
-           });
+        mongoClient.collection('users', function(err, collection) {
+            collection.findOne({
+                provider: profile.provider,
+                id: profile.id
+            }, function(err, item) {
+                if (item) {
+                    item.briscoId = item._id;
+                    next(item);
+                }
+                else {
+                    collection.insert(profile, {
+                        safe: true
+                    }, function(err, result) {
+                        profile.briscoId = result[0]._id;
+                        next(profile);
+                    });
+                }
+            });
         });
         /*
         redisclient.get(profile.provider + "-" + profile.id, function(err, userId) {
@@ -65,6 +80,7 @@ exports.init = function(app, config) {
         });
         */
     };
+
 
     return me;
 };

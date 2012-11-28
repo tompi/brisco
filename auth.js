@@ -7,12 +7,10 @@ exports.init = function(app, config, routes, passport, db) {
         LinkedInStrategy = require('passport-linkedin').Strategy;
 
     passport.serializeUser(function(user, done) {
-        console.log("serializeUser: " + user + "-" + user.id + "-" + user.provider);
         done(null, user.provider + "-" + user.id);
     });
 
     passport.deserializeUser(function(id, done) {
-        console.log("deserializeUser: " + id);
         var user = users[id];
         done(null, user);
     });
@@ -23,11 +21,10 @@ exports.init = function(app, config, routes, passport, db) {
             db.findOrCreateUser(profile, function(dbUser) {
                 user = dbUser;
                 users[profile.provider + "-" + profile.id] = user;
-                done(null, user);
+                return done(null, user);
             });                
         } else {
-            console.log("read user from array");
-            done(null, user);
+            return done(null, user);
         }         
     }
 
@@ -62,30 +59,14 @@ exports.init = function(app, config, routes, passport, db) {
     app.get('/auth/google',
     passport.authenticate('google', {
         scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email']
-    }),
-
-    function(req, res) {
-        // The request will be redirected to Google for authentication, so this
-        // function will not be called.
-    });
+    }));
 
     app.get('/auth/facebook',
     passport.authenticate('facebook', {
         scope: ['email']
-    }),
+    }));
 
-    function(req, res) {
-        // The request will be redirected to Facebook for authentication, so this
-        // function will not be called.
-    });
-
-    app.get('/auth/linkedin',
-    passport.authenticate('linkedin'),
-
-    function(req, res) {
-        // The request will be redirected to LinkedIn for authentication, so this
-        // function will not be called.
-    });
+    app.get('/auth/linkedin', passport.authenticate('linkedin'));
 
     app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
         failureRedirect: '/login'
@@ -110,5 +91,4 @@ exports.init = function(app, config, routes, passport, db) {
         }
         res.redirect('/login');
     }
-
 };

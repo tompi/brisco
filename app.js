@@ -12,7 +12,6 @@ var express = require('express'),
     auth = require('./auth'),
     db = require('./db');
 
-
 var app = express();
 
 app.configure(function() {
@@ -36,15 +35,13 @@ app.configure(function() {
 
 var db = db.init(app, config);
 
+routes.setupRoutes(app, db);
 auth.init(app, config, routes, passport, db);
-
 
 app.configure('development', function() {
     app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/start', routes.start);
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));

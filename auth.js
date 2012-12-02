@@ -18,7 +18,7 @@ exports.init = function(app, config, routes, passport, db) {
     function authenticatedUser(accessToken, refreshToken, profile, done) {
         var user = users[profile.provider + "-" + profile.id];
         if (!user) {
-            db.findOrCreateUser(profile, function(dbUser) {
+            db.user.findOrCreate(profile, function(dbUser) {
                 user = dbUser;
                 users[profile.provider + "-" + profile.id] = user;
                 return done(null, user);

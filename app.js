@@ -10,7 +10,7 @@ var express = require('express'),
     path = require('path'),
     passport = require('passport'),
     auth = require('./auth'),
-    db = require('./db');
+    db = require('./db/db');
 
 var app = express();
 

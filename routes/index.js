@@ -13,25 +13,17 @@ function ensureAuthenticated(req, res, next) {
     res.end();
 }
 
-  
 exports.setupRoutes = function(app, db) {
     exports.index = renderFunction('index');
-    
-    exports.start = renderFunction('start');
-    
-    exports.api = {};
-    
-    exports.api.findAllTournaments = function(req, res) {
-        db.findAllTournaments(function(items) {res.send(items);});
-    };
-    exports.api.createTournament = function(req, res) {
-        db.createTournament(req.user, function(tournamentId) {res.send(tournamentId);});
-    };
-    
     app.get('/', exports.index);
+    exports.start = renderFunction('start');
     app.get('/start', exports.start);
     
-    app.get('/api/tournaments', ensureAuthenticated, exports.api.findAllTournaments);
+    app.get('/api/tournament/findAll', ensureAuthenticated, function(req, res) {
+        db.tournament.findAll(function(items) {res.send(items);});
+    });
     
-    app.get('/api/createTournament', ensureAuthenticated, exports.api.createTournament);
+    app.get('/api/tournament/create', ensureAuthenticated, function(req, res) {
+        db.tournament.create(req.user, function(tournamentId) {res.send(tournamentId);});
+    });
  };

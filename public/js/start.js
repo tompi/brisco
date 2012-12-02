@@ -1,7 +1,7 @@
 $(function() {
     $('#createTournament').on('click', function() {
         db.createTournament(function(data) {
-            alert(data);
+            document.location = '/tournament#' + data;
         })
     });
 });

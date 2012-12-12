@@ -2,9 +2,9 @@ exports.init = function(mongoClient) {
 
     var me = {};
 
-    me.create = function(userId, next) {
+    me.create = function(user, next) {
         mongoClient.collection('tournaments').insert({
-            createdBy: userId,
+            createdBy: user._id,
             createdTime: new Date(),
             pairs: []
         }, {

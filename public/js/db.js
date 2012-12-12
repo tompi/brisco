@@ -1,4 +1,4 @@
-var db = (function() {
+var db = (function($) {
     var baseUrl = '/api/';
     var me = {};
     
@@ -29,4 +29,4 @@ var db = (function() {
     }
     
     return me;
-})();
+})(jQuery);

@@ -12,8 +12,8 @@ var db = (function($) {
         callApi('tournament/findAll', {}, next);   
     };
     
-    me.tournament.create = function(club, next) {
-        callApi('tournament/create', {club: club}, next);   
+    me.tournament.create = function(name, next) {
+        callApi('tournament/create', {name: name}, next);   
     };
 
     me.tournament.addPair = function(tournamentId, pair, next) {

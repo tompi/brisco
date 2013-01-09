@@ -19,11 +19,11 @@ exports.setupRoutes = function(app, db) {
     exports.start = renderFunction('start');
     app.get('/start', exports.start);
     
-    app.get('/api/tournament/findAll', ensureAuthenticated, function(req, res) {
-        db.tournament.findAll(function(items) {res.send(items);});
+    app.get('/api/tournaments', ensureAuthenticated, function(req, res) {
+        db.tournament.findAll(req.club, function(items) {res.send(items);});
     });
     
     app.get('/api/tournament/create', ensureAuthenticated, function(req, res) {
-        db.tournament.create(req.user, function(tournamentId) {res.send(tournamentId);});
+        db.tournament.create(req.user, req.body.name, req.club, function(tournamentId) {res.send(tournamentId);});
     });
  };

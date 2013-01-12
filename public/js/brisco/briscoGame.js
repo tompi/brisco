@@ -1,17 +1,7 @@
-if (typeof _ === "undefined") {
-    var _ = require("underscore");
-}
-(function(root) {
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
+
+define(['underscore'], function(_) {
     var briscoGame = {};
-    if (typeof exports !== 'undefined') {
-        if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = briscoGame;
-        }
-        exports.briscoGame = briscoGame;
-    }
-    else {
-        root['briscoGame'] = briscoGame;
-    }
 
     briscoGame.Board = {
         getVulnerability: function(boardNumber) {
@@ -295,4 +285,6 @@ if (typeof _ === "undefined") {
     };
     // Current version.
     briscoGame.VERSION = '0.0.2';
-})(this);
+    
+    return briscoGame;
+});

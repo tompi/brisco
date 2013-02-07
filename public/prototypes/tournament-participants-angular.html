@@ -56,7 +56,7 @@
         <div ng-controller="PairsCtrl">
             <div class="row-fluid">
                 <h3>&nbsp;
-                <a class="btn" id="add-pair" ng-click="open()">
+                <a class="btn" id="add-pair" ng-click="addPair()">
                     <i class="icon-plus-sign"></i> Add pair
                 </a>
                 </h3>
@@ -76,7 +76,7 @@
                         </tr>
                     </thead>
                     <tbody id="pairsTableBody">
-                        <tr ng-repeat="pair in pairs">
+                      <tr ng-repeat="pair in pairs" ng-click="editPair(pair.pairNo)">
                             <td class="edit number">{{pair.pairNo}}</td>
                             <td class="edit center">{{pair.nameNE}}</td>
                             <td class="edit center">{{pair.nameSW}}</td>
@@ -87,27 +87,23 @@
                     </tbody>
                 </table>
             </div>
-                
-        <div  ui-modal ng-model="shouldBeOpen">
-            <form ng-submit="addPair()">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3>Modal header</h3>
-            </div>        
-            <div class="modal-body">
+            <div class="hide" modal="shouldBeOpen" close="close()">
+              <div class="modal-header">
+                <h4>Edit/add pair</h4>
+              </div>
+              <div class="modal-body">
                     <label>Pair Number</label>
                     <input class="input-small" id="pairNo" ng-model="pairNo"/>
                     <label>North/East</label>
                     <input id="nameNE" ng-model="nameNE"/>
                     <label>South/West</label>
                     <input id="nameSW" ng-model="nameSW"/>                        
+              </div>
+              <div class="modal-footer">
+                <button class="btn" ng-click="close()">Cancel</button>
+                <button class="btn btn-primary" ng-click="savePair()">OK</button>
+              </div>
             </div>
-            <div class="modal-footer">
-                <a href="#" class="btn"  ng-click="close()">Close</a>
-                <input type="submit" id="save-pair" class="btn btn-primary" value="Save"/>
-            </div>       
-            </form>
-        </div>
         </div>
 
         <script src="../js/lib/require.js" data-main="participants-angular.js"></script>

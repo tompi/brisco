@@ -2,8 +2,10 @@ require.config({
     baseUrl: "../js/",
     paths: {
         "bootstrap": "lib/bootstrap",
-        "angular": "lib/angular.min",
-        "underscore": "lib/underscore"
+        "angular": "lib/angular/angular.min",
+        "underscore": "lib/underscore",
+        "modal": "lib/angular/modal",
+        "ui": "lib/angular/ui"
     },
     shim: {
         underscore: {
@@ -27,6 +29,13 @@ var globalPairs = [{
 
 function PairsCtrl($scope) {
     $scope.pairs = globalPairs;
+    
+    $scope.open = function() {
+        $scope.shouldBeOpen = true;
+    };
+    $scope.close = function() {
+        $scope.shouldBeOpen = false;
+    };
 
     $scope.addPair = function() {
         $scope.pairs.push({
@@ -37,6 +46,7 @@ function PairsCtrl($scope) {
         $scope.pairNo = '';
         $scope.nameNE = '';
         $scope.nameSW = '';
+        $scope.close();
     };
 
     $scope.removePair = function(index) {
@@ -45,8 +55,8 @@ function PairsCtrl($scope) {
 }
 
 
-require(["jquery", "bootstrap", "angular", "../prototypes/participants-app"], function($, bs, angular) {
+require(["jquery", "bootstrap", "angular", "modal", "../prototypes/participants-app"], function($, bs, angular) {
     $(function() {
-        angular.bootstrap(document, ['psa']);
+        angular.bootstrap(document, ['ui']);
     });
 });

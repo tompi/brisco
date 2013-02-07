@@ -8,11 +8,11 @@
     </head>
     
     <body class="container">
-        <div class="navbar navbar-fixed-top">
+        <div class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="brand" href="/about">DupliScore</a>
-                    <div class="nav-collapse collapse">
+                    <div class="nav-collapse collapse pull-right">
                         <ul class="nav">
                             <li class="">
                                 <a href="/">Home</a>
@@ -93,11 +93,11 @@
               </div>
               <div class="modal-body">
                     <label>Pair Number</label>
-                    <input class="input-small" id="pairNo" ng-model="pairNo"/>
+                    <input type="text" class="input-small" id="pairNo" ng-model="pairNo"/>
                     <label>North/East</label>
-                    <input id="nameNE" ng-model="nameNE"/>
+                    <input type="text" id="nameNE" ng-model="nameNE"/>
                     <label>South/West</label>
-                    <input id="nameSW" ng-model="nameSW"/>                        
+                    <input type="text" id="nameSW" ng-model="nameSW"/>                        
               </div>
               <div class="modal-footer">
                 <button class="btn" ng-click="close()">Cancel</button>

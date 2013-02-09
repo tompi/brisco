@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+    <ng:include src="'../head.html'"></ng:include>
+  </head>
+
+  <body class="container">
+    <ng:include src="'../topmenu.html'"></ng:include>
+    <div ng-controller="TournamentCtrl">
+    <div class="row-fluid">
+      <div class="span12">
+        <h2>{{tournament.name}} <small>{{tournament.startDate | date:'MM/dd/yyyy'}} - {{tournament.pairs.length}} pairs - {{tournament.boards.length}} boards</small></h2>
+      </div>
+    </div>
+    <tabs>
+    <pane heading="Setup">
+      <ng:include src="'setup.html'"></ng:include>
+    </pane>
+    <pane heading="Participants">
+      <ng:include src="'participants.html'"></ng:include>
+    </pane>
+    <pane heading="Board results">
+      <ng:include src="'board-results.html'"></ng:include>
+    </pane>
+    <pane heading="Score">
+      <ng:include src="'score.html'"></ng:include>
+    </pane>
+    <pane heading="Cards">
+      <ng:include src="'cards.html'"></ng:include>
+    </pane>
+    </tabs>
+    </div>
+    <script src="../js/lib/require.js" data-main="tournament.js"></script>
+  </body>
+</html>

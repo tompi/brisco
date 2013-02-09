@@ -4046,6 +4046,10 @@ input[type="submit"].btn.btn-mini {
   border-bottom-color: transparent;
   cursor: default;
 }
+.nav-stacked > .active > a,
+.nav-stacked > .active > a:hover {
+  background-color: #f7f7ee;
+}
 .nav-pills > li > a {
   padding-top: 8px;
   padding-bottom: 8px;

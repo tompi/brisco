@@ -15,6 +15,9 @@ body { padding-top: 50px; }
   padding-top: 20px;
 }
 
+.hero-unit .btn {
+  margin-bottom: 5px;
+}
 .center {
   text-align: center;
 }

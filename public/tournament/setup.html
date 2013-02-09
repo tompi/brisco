@@ -1,0 +1,10 @@
+<div ng-controller="SetupCtrl">
+  <label>Tournament name</label>
+  <input type="text" ng-model="tournament.name"/>
+  <label>Description</label>
+  <input type="text" ng-model="tournament.description"/>
+  <label>Start date</label>
+  <input type="text" ng-model="tournament.startDate" ui-date>
+  <br/>
+  <button class="btn btn-primary" ng-click="saveSetup()">Save</button>
+</div>

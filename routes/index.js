@@ -22,6 +22,9 @@ exports.setupRoutes = function(app, db) {
     app.get('/api/tournaments', ensureAuthenticated, function(req, res) {
         db.tournament.findAll(req.club, function(items) {res.send(items);});
     });
+    app.get('/api/testTournament', function(req, res) {
+        res.send(db.tournament.testTournament);
+    });
     
     app.get('/api/tournament/create', ensureAuthenticated, function(req, res) {
         db.tournament.create(req.user, req.body.name, req.club, function(tournamentId) {res.send(tournamentId);});

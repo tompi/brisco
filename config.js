@@ -52,6 +52,6 @@ var config_debug = {
     MONGO_DB: "brisco-dev",
     MONGO_USER: "brisco",
     MONGO_PASSWD: "Okt12Okt"
-}    
+};
 
 module.exports = debug ? config_debug : config;

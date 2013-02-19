@@ -90,3 +90,7 @@ table.contracts tbody tr:hover {
     float: right;
     color: #CCD;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}

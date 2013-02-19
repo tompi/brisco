@@ -4,61 +4,49 @@ require.config({
     "jquery-ui": "lib/jquery-ui",
     "bootstrap": "lib/bootstrap",
     "angular": "lib/angular/angular",
+    "angular-resource": "lib/angular/angular-resource",
     "underscore": "lib/underscore",
     "ui": "lib/angular/angular-ui",
-    "ui.bootstrap": "lib/angular/bootstrap"
+    "ui.bootstrap": "lib/angular/bootstrap",
+    "tournamentService": "api/tournament",
+    "app": "../tournament/app"
   },
   shim: {
     underscore: { exports: '_' },
     angular: { exports: 'angular' },
+    'angular-resource': { deps: ['angular'] },
     'ui.bootstrap': { deps: ['angular'] },
     'ui': { deps: ['angular'] }
   }
 });
 
 
-var globalTournament = {
-  name: 'Thursday club night',
-  pairs: [{
-    no: 1,
-    ne: "John Forrester",
-    sw: "Aylene Joleen"
-  }, {
-    no: 2,
-    ne: "Wayne Schmayne",
-    sw: "Wolum Holum"
-  }],
-  boards: [
-    { no: 1, results: [ 
-      { ew: 1, ns: 2, contract: {
-    Level: 4, Player: 'North', Tricks: 11
-  }
-  }]
-  },
-  { no: 2, results: [ 
-    { ew: 1, ns: 2, contract: { Level: 3, Player: 'South', Tricks: 8 }},
-    { ew: 3, ns: 4, contract: { Level: 1, Player: 'South', Tricks: 8 }}
-  ]
-  }
-  ],
-  startDate: new Date()
-};
-function BoardsCtrl($scope) {
-  $scope.boards = globalTournament.boards;
-  $scope.activeBoard = $scope.boards[0];
+function BoardsCtrl($scope, tournamentResource) {
+  tournamentResource.getTournament(function(t){
+    $scope.boards = t.boards;
+    $scope.activeBoard = $scope.boards[0];
+  });
+  
   $scope.setActiveBoard = function(board) {
     $scope.activeBoard = board;
   };
 }
-function SetupCtrl($scope) {
-  $scope.tournament = globalTournament;
+function SetupCtrl($scope, tournamentResource) {
+  tournamentResource.getTournament(function(t){
+    $scope.tournament = t;
+  });
 }
-function TournamentCtrl($scope) {
-  $scope.tournament = globalTournament;
+function TournamentCtrl($scope, tournamentResource) {
+  $scope.tournamentLoaded = false;
+  tournamentResource.getTournament(function(t){
+    $scope.tournament = t;
+    $scope.tournamentLoaded = true;
+  });
 }
-function PairsCtrl($scope) {
-  $scope.pairs = globalTournament.pairs;
-
+function PairsCtrl($scope, tournamentResource) {
+  tournamentResource.getTournament(function(t){
+    $scope.pairs = t.pairs;
+  });
   $scope.addPair = function() {
     $scope.pairNo= $scope.getNextPairNo();
     $scope.shouldBeOpen = true;
@@ -112,8 +100,9 @@ function PairsCtrl($scope) {
 }
 
 
-require(["jquery", "underscore", "jquery-ui", "bootstrap", "angular", "ui", "ui.bootstrap", "../tournament/app"], function($, _) {
-  $(function() {
-    angular.bootstrap(document, ['ui.bootstrap', 'ui']);
+require(["jquery", "underscore", "jquery-ui", "bootstrap", "angular", "angular-resource", "ui", "ui.bootstrap", "app", "tournamentService"], function($, _, ui, bs, angular) {
+  $(function() {    
+    angular.bootstrap(document, ['psa', 'ui.bootstrap', 'ui']);
+    $('body').removeClass('hide');
   });
 });

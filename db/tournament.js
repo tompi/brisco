@@ -1,7 +1,13 @@
+
+var pbnParser = require("../public/js/brisco/pbn/parser");
+var fs = require("fs");
+
 exports.init = function(mongoClient) {
 
     var me = {};
-
+    var pbnFile = fs.readFileSync(__dirname + "/../spec/CardFiles/ruter71.pbn", "utf-8");
+    me.testTournament = pbnParser.parse(pbnFile);
+    
     me.create = function(user, name, club, next) {
         mongoClient.collection('tournaments').insert({
             createdBy: user._id,
@@ -27,6 +33,7 @@ exports.init = function(mongoClient) {
             next(item);
         });
     };
+    
 
     return me;
 };

@@ -1,3 +1,5 @@
+/*global describe,it,expect*/
+
 var brisco = require('../public/js/brisco/briscoGame');
 
 describe('brisco.Direction', function() {

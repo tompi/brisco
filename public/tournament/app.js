@@ -1,3 +1,3 @@
 define(['angular'], function (angular) {
-     return angular.module('psa', []);
+     return angular.module('psa', ['ngResource']);
 });

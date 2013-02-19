@@ -14,7 +14,13 @@
     "passport-facebook": "*",
     "passport-linkedin": "*",
     "redis": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "xregexp": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-less": "*",
+    "grunt-jasmine-node": "*",
+    "grunt-contrib-jshint": "*"
   },
   "engines": {
     "node": "0.8.x",

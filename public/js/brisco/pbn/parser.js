@@ -1,6 +1,9 @@
-exports.pbn = (function() {
-    var xregexp = require('xregexp').XRegExp;
-    var entities = require('./entities');
+if (typeof define !== 'function') {
+    var define = require('amdefine')(module);
+}
+
+define(['./entities', 'xregexp'], function(entities, xregexp) {
+    xregexp = xregexp.XRegExp;
 
     var me = {};
     var lineRegExp = xregexp('\\[(?<tagName>[a-zA-Z]+)\\ +"(?<content>[^"]+)"\\]', 'x');
@@ -41,7 +44,8 @@ exports.pbn = (function() {
                     break;
                 case "EventDate":
                     var a = match.content.split('.');
-                    t.startDate = new Date(a[0], parseInt(a[1], 10)-1, a[2]);
+                    t.a = a;
+                    t.eventDate = new Date(parseInt(a[0], 10), parseInt(a[1], 10)-1, parseInt(a[2],10), 0, 0, 0, 0);
                     break;
                 case "Scoring":
                     t.scoring = match.content;
@@ -86,10 +90,10 @@ exports.pbn = (function() {
                 break;
             case "Declarer":
                 // Assumes contract comes first...
-                ret.Declarer = entities.getDeclarerFromString(s);
+                ret.contract.Declarer = entities.getDeclarerFromString(s);
                 break;
             case "Result":
-                ret.Tricks = parseInt(s, 10);
+                ret.contract.Tricks = parseInt(s, 10);
                 break;
             }
         }
@@ -185,4 +189,4 @@ exports.pbn = (function() {
     };
 
     return me;
-})();
+});

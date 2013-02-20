@@ -29,4 +29,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.registerTask('default', ['jshint', 'jasmine_node', 'less']);
+    grunt.registerTask('test', ['jasmine_node']);
 };

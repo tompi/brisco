@@ -21,6 +21,7 @@ app.configure(function() {
     app.locals._layoutFile = 'layout.ejs';
     app.set('view engine', 'ejs');
     app.use(express.favicon());
+    app.use(express.compress());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());

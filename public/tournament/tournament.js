@@ -9,7 +9,10 @@ require.config({
     "ui": "lib/angular/angular-ui",
     "ui.bootstrap": "lib/angular/bootstrap",
     "tournamentService": "api/tournament",
-    "app": "../tournament/app"
+    "app": "../tournament/app",
+    "briscoGame": "brisco/briscoGame",
+    "briscoScore": "brisco/briscoScore",
+    "briscoHtml": "brisco/briscoHtml"
   },
   shim: {
     underscore: { exports: '_' },
@@ -35,6 +38,8 @@ function SetupCtrl($scope, tournamentResource) {
   tournamentResource.getTournament(function(t){
     $scope.tournament = t;
   });
+}
+function CardsCtrl($scope, tournamentResource) {
 }
 function TournamentCtrl($scope, tournamentResource) {
   $scope.tournamentLoaded = false;

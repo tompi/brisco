@@ -86,5 +86,27 @@ define(['./briscoGame'], function(briscoGame) {
             return 'Unknown';
         }
     };
+    briscoHtml.getShortDealerFromBoardNumber = function(boardNumber) {
+        var dealer = briscoGame.Board.getDealer(boardNumber);
+        return briscoHtml.getShortStringFromDirection(dealer);
+    };
+    briscoHtml.getShortVulnerabilityFromBoardNumber = function(boardNumber) {
+        var vulnerability = briscoGame.Board.getVulnerability(boardNumber);
+        if (!vulnerability) {
+            return '';
+        }
+        switch (vulnerability) {
+        case briscoGame.Vulnerability.NorthSouth:
+            return 'NS';
+        case briscoGame.Vulnerability.EastWest:
+            return 'EW';
+        case briscoGame.Vulnerability.Both:
+            return 'All';
+        case briscoGame.Vulnerability.None:
+            return 'None';
+        default:
+            return 'Unknown';
+        }
+    };
     return briscoHtml;
 });

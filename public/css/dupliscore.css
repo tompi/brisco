@@ -52,7 +52,7 @@ i.hearts:before { color: #d72b21; content: "\002665"; font-style: normal; }
 i.diamonds:before { color: #d72b21; content: "\002666"; font-style: normal; }
 i.clubs:before { content: "\002663"; font-style: normal; }
 
-div.cards { border: 1px solid #DDD; border-radius: 10px; float: left; padding: 5px; margin-right: 15px; }
+div.cards { border: 1px solid #DDD; border-radius: 10px; float: left; padding: 5px; margin-right: 15px; margin-bottom: 15px;}
 table.cards td { padding: 5px; vertical-align: top; }
 table.cards div.center { border: 1px solid #DDD; border-radius: 10px; }
 table.cards td.info { color: #DDD; font-weight: bold; text-align: right; }

@@ -1,19 +1,25 @@
+var briscoGameRef = 'briscoGame';
 if (typeof define !== 'function') {
     var define = require('amdefine')(module);
+    briscoGameRef = './briscoGame';
 }
 
-define(['./briscoGame'], function(briscoGame) {
+define([briscoGameRef], function(briscoGame) {
     var briscoHtml = {};
-
+    var d = briscoGame.Direction;
+    var den = briscoGame.Denomination;
+    var s = briscoGame.Suit;
+    var v = briscoGame.Vulnerability;
+    
     briscoHtml.getStringFromSuit = function(suit) {
         switch (suit) {
-        case briscoGame.Suit.Spades:
+        case s.Spades:
             return '&spades;';
-        case briscoGame.Suit.Hearts:
+        case s.Hearts:
             return '<span class="red">&hearts;</span>';
-        case briscoGame.Suit.Diamonds:
+        case s.Diamonds:
             return '<span class="red">&diams;</span>';
-        case briscoGame.Suit.Clubs:
+        case s.Clubs:
             return '&clubs;';
         default:
             return 'NT';
@@ -56,13 +62,13 @@ define(['./briscoGame'], function(briscoGame) {
             return '';
         }
         switch (direction) {
-        case briscoGame.Direction.North:
+        case d.North:
             return 'North';
-        case briscoGame.Direction.South:
+        case d.South:
             return 'South';
-        case briscoGame.Direction.West:
+        case d.West:
             return 'West';
-        case briscoGame.Direction.East:
+        case d.East:
             return 'East';
         default:
             return 'Unknown';
@@ -74,13 +80,13 @@ define(['./briscoGame'], function(briscoGame) {
             return '';
         }
         switch (direction) {
-        case briscoGame.Direction.North:
+        case d.North:
             return 'N';
-        case briscoGame.Direction.South:
+        case d.South:
             return 'S';
-        case briscoGame.Direction.West:
+        case d.West:
             return 'W';
-        case briscoGame.Direction.East:
+        case d.East:
             return 'E';
         default:
             return 'Unknown';
@@ -96,17 +102,54 @@ define(['./briscoGame'], function(briscoGame) {
             return '';
         }
         switch (vulnerability) {
-        case briscoGame.Vulnerability.NorthSouth:
+        case v.NorthSouth:
             return 'NS';
-        case briscoGame.Vulnerability.EastWest:
+        case v.EastWest:
             return 'EW';
-        case briscoGame.Vulnerability.Both:
+        case v.Both:
             return 'All';
-        case briscoGame.Vulnerability.None:
+        case v.None:
             return 'None';
         default:
             return 'Unknown';
         }
     };
+    briscoHtml.getStringFromDenomination = function(denomination) {
+        if (!denomination) {
+            return '';
+        }
+        switch (denomination) {
+        case den.Two:
+            return '2';
+        case den.Three:
+            return '3';
+        case den.Four:
+            return '4';
+        case den.Five:
+            return '5';
+        case den.Six:
+            return '6';
+        case den.Seven:
+            return '7';
+        case den.Eight:
+            return '8';
+        case den.Nine:
+            return '9';
+        // TODO: Localization
+        case den.Ten:
+            return 'T';
+        case den.Jack:
+            return 'J';
+        case den.Queen:
+            return 'Q';
+        case den.King:
+            return 'K';
+        case den.Ace:
+            return 'A';
+        default:
+            return '?';
+        }
+    };
+
     return briscoHtml;
 });

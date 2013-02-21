@@ -1,8 +1,10 @@
+var briscoGameRef = 'briscoGame';
 if (typeof define !== 'function') {
     var define = require('amdefine')(module);
+    briscoGameRef = './briscoGame';
 }
 
-define(['./briscoGame'], function(briscoGame) {
+define([briscoGameRef], function(briscoGame) {
     var briscoScore = {};
     
     var DOUBLED_NOZONE = [ -100, -300, -500, -800,-1100, -1400, -1700, -2000, -2300, -2600, -2900, -3200, -3500 ];

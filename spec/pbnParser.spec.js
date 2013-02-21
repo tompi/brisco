@@ -1,6 +1,7 @@
 /*global describe,it,expect*/
 
 var cardFileParser = require('../public/js/brisco/pbn/parser');
+var pbnEntities = require('../public/js/brisco/pbn/entities');
 var briscoGame = require('../public/js/brisco/briscoGame');
 var _ = require("underscore");
 var fs = require("fs");
@@ -13,6 +14,7 @@ describe('cardFileParser.pbn', function() {
     });
     it('should parse deal 1 correctly', function() {
         expect(deals[0].deal).toEqual("N:752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3");
+        expect(deals[0].boardNr).toEqual(1);        
     });
 });
 describe('ruter71.pbn', function() {
@@ -33,8 +35,8 @@ describe('ruter71.pbn', function() {
         var c = res.results[0].contract;
         expect(c.Level).toEqual(2);
         expect(c.Suit).toEqual(briscoGame.Suit.Hearts);
-        expect(c.Doubled).toEqual(true);
-        expect(c.ReDoubled).toEqual(false);
+        expect(!!c.Doubled).toEqual(true);
+        expect(!!c.ReDoubled).toEqual(false);
         expect(c.Declarer).toEqual(briscoGame.Direction.West);
         expect(c.Tricks).toEqual(7);
     });
@@ -51,4 +53,23 @@ describe('parser', function() {
         expect(namesFormat.start).toEqual(21);
         expect(namesFormat.stop).toEqual(71);
     });
+});
+describe('entities', function() {
+    var deal = pbnEntities.parseDeal('N:752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3');
+    var north = deal.getHand(briscoGame.Direction.North);
+    var east = deal.getHand(briscoGame.Direction.East);
+    var south = deal.getHand(briscoGame.Direction.South);
+    var west = deal.getHand(briscoGame.Direction.West);
+    it('should parse jack of spades in south hand', function() {
+        var SJ = Object.create(briscoGame.Card);
+        SJ.Denomination = briscoGame.Denomination.Jack;
+        SJ.Suit = briscoGame.Suit.Spades;
+        expect(south.contains(SJ)).toEqual(true);
+    });
+    it('should parse 4 complete hands', function() {
+        expect(north.isComplete()).toEqual(true);
+        expect(east.isComplete()).toEqual(true);
+        expect(south.isComplete()).toEqual(true);
+        expect(west.isComplete()).toEqual(true);
+    })
 });

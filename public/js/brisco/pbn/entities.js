@@ -1,8 +1,10 @@
+var briscoGameRef = 'briscoGame';
 if (typeof define !== 'function') {
     var define = require('amdefine')(module);
+    briscoGameRef = '../briscoGame';
 }
 
-define(['../briscoGame'], function(briscoGame) {
+define([briscoGameRef, 'underscore'], function(briscoGame, _) {
     var me = {};
 
     me.getContractFromString = function(s) {
@@ -15,12 +17,12 @@ define(['../briscoGame'], function(briscoGame) {
         }
         ret.Level = parseInt(s[0], 10);
         ret.Suit = getSuitFromString(s[1]);
-        ret.ReDoubled = s.indexOf('XX') > 0 || s.indexOf('R') > 0;
+        if (s.indexOf('XX') > 0 || s.indexOf('R') > 0) ret.ReDoubled = true;
         if (ret.ReDoubled) {
             ret.Doubled = true;
         }
         else {
-            ret.Doubled = s.indexOf('X') > 0;
+            if (s.indexOf('X') > 0) ret.Doubled = true;
         }
         return ret;
     };
@@ -55,6 +57,49 @@ define(['../briscoGame'], function(briscoGame) {
             return briscoGame.Direction.West;
         }
     };
-
+    var d = briscoGame.Direction;
+    var directions = [d.North, d.East, d.South, d.West];
+    me.parseDeal = function(dealString) {
+        var hands = dealString.split(':')[1].split(' ');
+        var ret = Object.create(briscoGame.Deal);
+        for (var i=0; i<4; i++) ret.setHand(directions[i], getHand(hands[i]));
+        return ret;
+    };
+    var s = briscoGame.Suit;
+    var suits = [s.Spades, s.Hearts, s.Diamonds, s.Clubs];
+    function getHand(hand) {
+        var ret = Object.create(briscoGame.Hand);
+        var suitsString = hand.split('.');
+        for (var i=0; i<4; i++) ret.addCards(getSuit(suitsString[i], suits[i]));
+        return ret;
+    }    
+    function getSuit(suitString, suit) {
+        if (!suitString) return [];
+        return _.map(suitString.split(''), function(denominationString) {
+            var card = Object.create(briscoGame.Card);
+            card.Denomination = getDenomination(denominationString);
+            card.Suit = suit;
+            return card;
+        });
+    }
+    function getDenomination(denominationString) {
+        var d = briscoGame.Denomination;
+        switch (denominationString) {
+            case '2': return d.Two;
+            case '3': return d.Three;
+            case '4': return d.Four;
+            case '5': return d.Five;
+            case '6': return d.Six;
+            case '7': return d.Seven;
+            case '8': return d.Eight;
+            case '9': return d.Nine;
+            case 'T': return d.Ten;
+            case 'J': return d.Jack;
+            case 'Q': return d.Queen;
+            case 'K': return d.King;
+            case 'A': return d.Ace;
+            default: return null;
+        }
+    }
     return me;
 });

@@ -156,7 +156,7 @@ define(['underscore'], function(_) {
         },
 
         getCardsWithinSuit: function(suit) {
-            return _.find(this.Cards, function(card) {
+            return _.filter(this.Cards, function(card) {
                 return card.Suit === suit;
             });
         },
@@ -165,13 +165,9 @@ define(['underscore'], function(_) {
         },
 
         removeSuit: function(suit) {
-            var newCards = [];
-            for (var i = 0; i < this.Cards.length; i++) {
-                if (this.Cards[i] !== null && this.Cards[i].Suit !== suit) {
-                    newCards.push(this.Cards[i]);
-                }
-            }
-            this.Cards = newCards;
+            this.Cards = _.filter(this.Cards, function(card) {
+                return !!card && card.Suit !== suit;
+            });
         }
     };
 
@@ -284,7 +280,7 @@ define(['underscore'], function(_) {
         return contract.Level === 7;
     };
     // Current version.
-    briscoGame.VERSION = '0.0.2';
+    briscoGame.VERSION = '0.3';
     
     return briscoGame;
 });

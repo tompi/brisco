@@ -12,7 +12,8 @@ require.config({
     "app": "../tournament/app",
     "briscoGame": "brisco/briscoGame",
     "briscoScore": "brisco/briscoScore",
-    "briscoHtml": "brisco/briscoHtml"
+    "briscoHtml": "brisco/briscoHtml",
+    "pbnEntities": "brisco/pbn/entities"
   },
   shim: {
     underscore: { exports: '_' },
@@ -40,6 +41,9 @@ function SetupCtrl($scope, tournamentResource) {
   });
 }
 function CardsCtrl($scope, tournamentResource) {
+  tournamentResource.getTournament(function(t){
+    $scope.deals = t.deals;
+  });
 }
 function TournamentCtrl($scope, tournamentResource) {
   $scope.tournamentLoaded = false;

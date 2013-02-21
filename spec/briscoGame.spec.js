@@ -135,9 +135,8 @@ describe('brisco.Hand', function() {
     expect(hand.contains(sQ)).
       toEqual(true);
   });
-  it('should say return heart ace as heart-suit', function() {
-    expect(hand.getCardsWithinSuit(brisco.Suit.Hearts).equals(hA)).
-      toEqual(true);
+  it('should return heart ace as heart-suit', function() {
+    expect(hand.getCardsWithinSuit(brisco.Suit.Hearts)[0].equals(hA)).toEqual(true);
   });
 });
 

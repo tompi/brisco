@@ -61,26 +61,24 @@ define([briscoGameRef, 'underscore'], function(briscoGame, _) {
     var directions = [d.North, d.East, d.South, d.West];
     me.parseDeal = function(dealString) {
         var hands = dealString.split(':')[1].split(' ');
-        var ret = Object.create(briscoGame.Deal);
-        for (var i=0; i<4; i++) ret.setHand(directions[i], getHand(hands[i]));
+        var ret = {};
+        for (var i=0; i<4; i++) ret[directions[i]] = getHand(hands[i]);
         return ret;
     };
     var s = briscoGame.Suit;
     var suits = [s.Spades, s.Hearts, s.Diamonds, s.Clubs];
     function getHand(hand) {
-        var ret = Object.create(briscoGame.Hand);
+        var ret = {Cards: []};
         var suitsString = hand.split('.');
-        for (var i=0; i<4; i++) ret.addCards(getSuit(suitsString[i], suits[i]));
+        for (var i=0; i<4; i++) ret.Cards = ret.Cards.concat(getSuit(suitsString[i], suits[i]));        
         return ret;
     }    
     function getSuit(suitString, suit) {
         if (!suitString) return [];
-        return _.map(suitString.split(''), function(denominationString) {
-            var card = Object.create(briscoGame.Card);
-            card.Denomination = getDenomination(denominationString);
-            card.Suit = suit;
-            return card;
+        var ret = _.map(suitString.split(''), function(denominationString) {
+            return { Denomination: getDenomination(denominationString), Suit: suit};
         });
+        return ret;
     }
     function getDenomination(denominationString) {
         var d = briscoGame.Denomination;

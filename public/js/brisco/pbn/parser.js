@@ -75,6 +75,7 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
 
     function parseResult(line, formats) {
         var ret = {};
+        var parsedString;
         for (var i = 0; i < formats.length; i++) {
             var f = formats[i];
             var s = line.substr(f.start, f.stop - f.start);
@@ -94,6 +95,22 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                 break;
             case "Result":
                 ret.contract.Tricks = parseInt(s, 10);
+                break;
+            case "Score_NS":
+                parsedString = parsePbnString(s);
+                if (parsedString) ret.scoreNs = parseInt(parsedString, 10);
+                break;
+            case "Score_EW":
+                parsedString = parsePbnString(s);
+                if (parsedString) ret.scoreNs = -1 * parseInt(parsedString, 10);
+                break;
+            case "IMP_NS":
+            case "MP_NS":
+                ret.resultNs = parseFloat(s, 10);
+                break;
+            case "IMP_EW":
+            case "MP_EW":
+                ret.resultEw = parseFloat(s, 10);
                 break;
             }
         }

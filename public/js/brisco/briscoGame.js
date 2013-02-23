@@ -108,10 +108,8 @@ define(['underscore'], function(_) {
     };
 
     briscoGame.Card = {
-        Denomination: null,
-        Suit: null,
-        equals: function(other) {
-            if (other && other.Suit === this.Suit && other.Denomination === this.Denomination) return true;
+        equals: function(a, b) {
+            if (a && b && a.Suit === b.Suit && a.Denomination === b.Denomination) return true;
             return false;
         }
     };
@@ -135,86 +133,37 @@ define(['underscore'], function(_) {
     };
 
     briscoGame.Hand = {
-        Cards: [],
-
-        isComplete: function() {
-            if (this.Cards && this.Cards.length === 13) return true;
+        isComplete: function(hand) {
+            if (hand.Cards && hand.Cards.length === 13) return true;
             return false;
         },
-
-        contains: function(card) {
-            if (card === null) {
+        contains: function(hand, card) {
+            if (!hand.Cards) {
                 return false;
             }
-            return _.any(this.Cards, function(myCard) {
-                return card.equals(myCard);
+            return _.any(hand.Cards, function(myCard) {
+                return briscoGame.Card.equals(card,myCard);
             });
         },
 
-        add: function(card) {
-            this.Cards.push(card);
-        },
-
-        getCardsWithinSuit: function(suit) {
-            return _.filter(this.Cards, function(card) {
+        getCardsWithinSuit: function(hand, suit) {
+            return _.filter(hand.Cards, function(card) {
                 return card.Suit === suit;
             });
         },
-        addCards: function(cards) {
-            this.Cards = this.Cards.concat(cards);
-        },
-
-        removeSuit: function(suit) {
-            this.Cards = _.filter(this.Cards, function(card) {
+        removeSuit: function(hand, suit) {
+            hand.Cards = _.filter(hand.Cards, function(card) {
                 return !!card && card.Suit !== suit;
             });
         }
     };
 
     briscoGame.Deal = {
-        West: null,
-        North: null,
-        East: null,
-        South: null,
-
-        getHand: function(direction) {
-            switch (direction) {
-            case briscoGame.Direction.West:
-                return this.West;
-            case briscoGame.Direction.North:
-                return this.North;
-            case briscoGame.Direction.East:
-                return this.East;
-            case briscoGame.Direction.South:
-                return this.South;
-            default:
-                return null;
-            }
-        },
-        setHand: function(direction, hand) {
-            switch (direction) {
-            case briscoGame.Direction.West:
-                this.West = hand;
-                break;
-            case briscoGame.Direction.North:
-                this.North = hand;
-                break;
-            case briscoGame.Direction.East:
-                this.East = hand;
-                break;
-            case briscoGame.Direction.South:
-                this.South = hand;
-                break;
-            default:
-                return;
-            }
-        },
-
-        contains: function(card) {
-            if (this.West !== null && this.West.contains(card)) return true;
-            if (this.North !== null && this.North.contains(card)) return true;
-            if (this.East !== null && this.East.contains(card)) return true;
-            if (this.South !== null && this.South.contains(card)) return true;
+        contains: function(deal, card) {
+            if (briscoGame.Hand.contains(deal[briscoGame.Direction.West],card)) return true;
+            if (briscoGame.Hand.contains(deal[briscoGame.Direction.North],card)) return true;
+            if (briscoGame.Hand.contains(deal[briscoGame.Direction.East],card)) return true;
+            if (briscoGame.Hand.contains(deal[briscoGame.Direction.South],card)) return true;
             return false;
         }
     };
@@ -229,23 +178,20 @@ define(['underscore'], function(_) {
     };
 
     briscoGame.getHandMissing = function(hand1, hand2, hand3) {
-        if (hand1 === null || hand2 === null || hand3 === null) {
+        if (!hand1 || !hand2 || !hand3) {
             return null;
         }
-        if (!hand1.isComplete() || !hand2.isComplete() || !hand3.isComplete()) {
+        if (!briscoGame.Hand.isComplete(hand1) || !briscoGame.Hand.isComplete(hand2) || !briscoGame.Hand.isComplete(hand3)) {
             return null;
         }
-        var missingHand = Object.create(briscoGame.Hand);
+        var missingHand = {Cards: []};
         for (var s in briscoGame.Suit) {
             var suit = briscoGame.Suit[s];
             for (var d in briscoGame.Denomination) {
                 var denomination = briscoGame.Denomination[d];
                 if (denomination !== briscoGame.Denomination.Small && d !== briscoGame.Denomination.Unknown) {
-
-                    var c = Object.create(briscoGame.Card);
-                    c.Suit = suit;
-                    c.Denomination = denomination;
-                    if (!hand1.contains(c) && !hand2.contains(c) && !hand3.contains(c)) {
+                    var c = { Suit: suit, Denomination: denomination};
+                    if (!briscoGame.Hand.contains(hand1,c) && !briscoGame.Hand.contains(hand2,c) && !briscoGame.Hand.contains(hand3,c)) {
                         missingHand.Add(c);
                     }
                 }
@@ -259,7 +205,7 @@ define(['underscore'], function(_) {
         Suit: null,
         Doubled: false,
         ReDoubled: false,
-        Player: null,
+        Declarer: null,
         Tricks: 0,
         Lead: null
     };

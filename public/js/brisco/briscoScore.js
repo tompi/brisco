@@ -35,8 +35,8 @@ define([briscoGameRef], function(briscoGame) {
 
     briscoScore.getNorthSouthPointsWithBoardNo = function(contract, boardNumber) {
 		var direction = briscoGame.Direction.North;
-		if (contract.Player !== null) {
-			direction = contract.Player;
+		if (contract.Declarer) {
+			direction = contract.Declarer;
 		}
 		var vulnerability = briscoGame.Board.getVulnerability(boardNumber);
         var vulnerable = briscoGame.Vulnerability.isVulnerable(vulnerability, direction);
@@ -46,8 +46,8 @@ define([briscoGameRef], function(briscoGame) {
 	briscoScore.getNorthSouthPointsWithVulnerability = function(contract, vulnerable) {
 		var points = briscoScore.getPoints(contract, vulnerable);
 		// Check if this briscoScore was indeed for east-west :)
-		if (contract.Player !== null) {
-			if (!briscoGame.isNorthSouth(contract.Player)) {
+		if (contract.Declarer) {
+			if (!briscoGame.isNorthSouth(contract.Declarer)) {
 				points = points * -1;
 			}
 		}

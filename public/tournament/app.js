@@ -12,8 +12,8 @@ define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbn
         };
     });
     app.filter('scoreFormatter', function() {
-        return function(contract, boardNumber, forNorthSouth) {
-            var nsScore = briscoScore.getNorthSouthPointsWithBoardNo(contract, boardNumber);
+        return function(result, boardNumber, forNorthSouth) {
+            var nsScore = result.scoreNs || briscoScore.getNorthSouthPointsWithBoardNo(result.contract, boardNumber);
             if (!nsScore) return '';
             if (forNorthSouth) {
                 return (nsScore > 0) ? nsScore : '';
@@ -39,27 +39,28 @@ define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbn
             var vulnerability = briscoHtml.getShortVulnerabilityFromBoardNumber(dealObj.boardNr);
             var ret = '<table class="cards">';
             ret += '<tr><td></td><td>';
-            ret += getHandHtml(deal.getHand(d.North));
+            ret += getHandHtml(deal[d.North]);
             ret += '</td><td class="info"><div><small>Board:</small> ' + dealObj.boardNr + '</div>';
             ret += '<div><small>Dealer:</small> ' + dealer + '</div>';
             ret += '<div><small>Vuln.:</small> ' + vulnerability + '</div></td></tr>';
             ret += '<tr><td>';
-            ret += getHandHtml(deal.getHand(d.West));
+            ret += getHandHtml(deal[d.West]);
             ret += '</td><td><div class="center"><br/><br/><br><br/></div></td><td>';
-            ret += getHandHtml(deal.getHand(d.East));
+            ret += getHandHtml(deal[d.East]);
             ret += '</td></tr><tr><td></td><td>';
-            ret += getHandHtml(deal.getHand(d.South));
+            ret += getHandHtml(deal[d.South]);
             ret += '</td><td></td></tr></table>';
 
             return ret;
         };
     });
 
+    var h = briscoGame.Hand;
     function getHandHtml(hand) {
-        var ret = getSuitDiv(hand.getCardsWithinSuit(s.Spades), 'spades');
-        ret += getSuitDiv(hand.getCardsWithinSuit(s.Hearts), 'hearts');
-        ret += getSuitDiv(hand.getCardsWithinSuit(s.Diamonds), 'diamonds');
-        ret += getSuitDiv(hand.getCardsWithinSuit(s.Clubs), 'clubs');
+        var ret = getSuitDiv(h.getCardsWithinSuit(hand,s.Spades), 'spades');
+        ret += getSuitDiv(h.getCardsWithinSuit(hand,s.Hearts), 'hearts');
+        ret += getSuitDiv(h.getCardsWithinSuit(hand,s.Diamonds), 'diamonds');
+        ret += getSuitDiv(h.getCardsWithinSuit(hand,s.Clubs), 'clubs');
         return ret;
     }
 

@@ -8,7 +8,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_4HV10_equals_620', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 4;
-        contract.Player = brisco.Direction.North;
+        contract.Declarer = brisco.Direction.North;
         contract.Doubled = false;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Hearts;
@@ -16,10 +16,20 @@ describe('score', function() {
         var actual = score.getNorthSouthPointsWithVulnerability(contract, true);
         expect(actual).toEqual(620);
     });
+    it('should calculate GetNorthSouthScore_2DN7_equals_minus100', function() {
+        var contract = { 
+            Level: 2, 
+            Player: brisco.Direction.North,
+            Suit: brisco.Suit.Diamonds,
+            Tricks: 7
+        };
+        var actual = score.getNorthSouthPointsWithVulnerability(contract, true);
+        expect(actual).toEqual(-100);
+    });
     it('should calculate GetNorthSouthScore_4HXV7_equals_minus800', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 4;
-        contract.Player = brisco.Direction.North;
+        contract.Declarer = brisco.Direction.North;
         contract.Doubled = true;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Hearts;
@@ -32,7 +42,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_2HVW8_equals_minus110', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 2;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = false;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Hearts;
@@ -45,7 +55,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_2HXNVW8_equals_minus470', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 2;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = true;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Hearts;
@@ -58,7 +68,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_3NTVS11_equals_660', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 3;
-        contract.Player = brisco.Direction.South;
+        contract.Declarer = brisco.Direction.South;
         contract.Doubled = false;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Notrump;
@@ -71,7 +81,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_1DX8NVW_equals_minus240', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 1;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = true;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Diamonds;
@@ -84,7 +94,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_5SXX12VW_equals_minus1600', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 5;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = true;
         contract.ReDoubled = true;
         contract.Suit = brisco.Suit.Spades;
@@ -97,7 +107,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_6NT13NVW_equals_minus1020', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 6;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = false;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Notrump;
@@ -110,7 +120,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_4D7NVW_equals_150', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 4;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = false;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Diamonds;
@@ -123,7 +133,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_4DX7NVW_equals_500', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 4;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = true;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Diamonds;
@@ -136,7 +146,7 @@ describe('score', function() {
     it('should calculate GetNorthSouthScore_4Dx7VW_equals_800', function() {
         var contract = Object.create(brisco.Contract);
         contract.Level = 4;
-        contract.Player = brisco.Direction.West;
+        contract.Declarer = brisco.Direction.West;
         contract.Doubled = true;
         contract.ReDoubled = false;
         contract.Suit = brisco.Suit.Diamonds;
@@ -192,7 +202,7 @@ describe('score.IMPCalculator', function() {
     it('should calculate GetNorthSouthIMPContractContract', function() {
         var contractA = Object.create(brisco.Contract);
         contractA.Level = 4;
-        contractA.Player = brisco.Direction.West;
+        contractA.Declarer = brisco.Direction.West;
         contractA.Doubled = true;
         contractA.ReDoubled = false;
         contractA.Suit = brisco.Suit.Diamonds;
@@ -200,7 +210,7 @@ describe('score.IMPCalculator', function() {
 
         var contractB = Object.create(brisco.Contract);
         contractB.Level = 4;
-        contractB.Player = brisco.Direction.West;
+        contractB.Declarer = brisco.Direction.West;
         contractB.Doubled = true;
         contractB.ReDoubled = false;
         contractB.Suit = brisco.Suit.Diamonds;

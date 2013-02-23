@@ -32,13 +32,17 @@ describe('ruter71.pbn', function() {
     });
     it('should parse first result of board 10 as 2HX', function() {
         var res = _.find(t.boards, function(b) {return b.no == 10;});
-        var c = res.results[0].contract;
+        var r = res.results[0];
+        var c = r.contract;
         expect(c.Level).toEqual(2);
         expect(c.Suit).toEqual(briscoGame.Suit.Hearts);
         expect(!!c.Doubled).toEqual(true);
         expect(!!c.ReDoubled).toEqual(false);
         expect(c.Declarer).toEqual(briscoGame.Direction.West);
         expect(c.Tricks).toEqual(7);
+        expect(r.scoreNs).toEqual(200);
+        expect(r.resultNs).toEqual(5);
+        expect(r.resultEw).toEqual(-5);
     });
     it('should parse date as 2012.01.24', function() {
         expect(t.eventDate.getFullYear()).toEqual(2012);
@@ -54,22 +58,25 @@ describe('parser', function() {
         expect(namesFormat.stop).toEqual(71);
     });
 });
+var h = briscoGame.Hand;
+var d = briscoGame.Direction;
 describe('entities', function() {
     var deal = pbnEntities.parseDeal('N:752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3');
-    var north = deal.getHand(briscoGame.Direction.North);
-    var east = deal.getHand(briscoGame.Direction.East);
-    var south = deal.getHand(briscoGame.Direction.South);
-    var west = deal.getHand(briscoGame.Direction.West);
+    var north = deal[d.North];
+    var east = deal[d.East];
+    var south = deal[d.South];
+    var west = deal[d.West];
+    it('should parse ace of spades as first card in west hand', function() {
+        expect(west.Cards[0].Denomination).toEqual(briscoGame.Denomination.Ace);
+    });
     it('should parse jack of spades in south hand', function() {
-        var SJ = Object.create(briscoGame.Card);
-        SJ.Denomination = briscoGame.Denomination.Jack;
-        SJ.Suit = briscoGame.Suit.Spades;
-        expect(south.contains(SJ)).toEqual(true);
+        var SJ = { Denomination: briscoGame.Denomination.Jack, Suit: briscoGame.Suit.Spades};
+        expect( h.contains(south, SJ)).toEqual(true);
     });
     it('should parse 4 complete hands', function() {
-        expect(north.isComplete()).toEqual(true);
-        expect(east.isComplete()).toEqual(true);
-        expect(south.isComplete()).toEqual(true);
-        expect(west.isComplete()).toEqual(true);
+        expect(h.isComplete(north)).toEqual(true);
+        expect(h.isComplete(east)).toEqual(true);
+        expect(h.isComplete(south)).toEqual(true);
+        expect(h.isComplete(west)).toEqual(true);
     })
 });

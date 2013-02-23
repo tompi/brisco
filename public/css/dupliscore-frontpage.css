@@ -1,0 +1,25 @@
+/* Front page */
+body {
+    background: #555 url(../img/bridge-tournament.jpg) no-repeat top center fixed;
+    background-size: cover;
+}
+.hero-unit {
+  margin-top: 50px;
+  box-shadow: 3px 3px 5px 6px rgb(0, 0, 0);
+  box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, 0.5);
+  background-color: rgb(238, 238, 221);
+  background-color: rgba(238, 238, 221, 0.74);
+}
+
+.hero-unit h1 {
+  text-shadow: 2px 2px 0 #a9a9a9;
+  padding-bottom: 30px;
+}
+
+.hero-unit p {
+  padding-top: 20px;
+}
+
+.hero-unit .btn {
+  margin-bottom: 5px;
+}

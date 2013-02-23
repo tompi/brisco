@@ -1,0 +1,1999 @@
+{
+  "boards": [
+    {
+      "no": 1,
+      "results": [
+        {
+          "ns": 3,
+          "ew": 4,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 5,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 8,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 11,
+          "contract": {
+            "Level": 1,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 13,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 2,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 16,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "results": [
+        {
+          "ns": 15,
+          "ew": 16,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 8,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 2,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 4,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 5,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 11,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 13,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "results": [
+        {
+          "ns": 6,
+          "ew": 5,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 8,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 16,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 4,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 10,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 11,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 5
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 2,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 13,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "results": [
+        {
+          "ns": 7,
+          "ew": 12,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 9,
+          "contract": {
+            "Level": 4,
+            "Suit": 1,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 4,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 3,
+          "contract": {
+            "Level": 3,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 15,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 16,
+          "ew": 11,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 6,
+          "contract": {
+            "Level": 3,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 10,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "results": [
+        {
+          "ns": 13,
+          "ew": 15,
+          "contract": {
+            "Level": 3,
+            "Suit": 1,
+            "Declarer": 2,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 12,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 6,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 4,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 10,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 3,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 16,
+          "ew": 11,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 9,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "results": [
+        {
+          "ns": 1,
+          "ew": 4,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 6,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 12,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 15,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 10,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 9,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 3,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 16,
+          "ew": 11,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "results": [
+        {
+          "ns": 16,
+          "ew": 7,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 8,
+          "contract": {
+            "Level": 2,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 10,
+          "ew": 2,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 13,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 14,
+          "contract": {
+            "Level": 3,
+            "Suit": 1,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 12,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 6,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 9,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "results": [
+        {
+          "ns": 4,
+          "ew": 8,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 10,
+          "ew": 2,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 12,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 16,
+          "ew": 7,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 9,
+          "contract": {
+            "Level": 3,
+            "Suit": 1,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 6,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 14,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 2,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 13,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 8
+          }
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "results": [
+        {
+          "ns": 16,
+          "ew": 7,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 9,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 6,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 12,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 8,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 13,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 14,
+          "contract": {
+            "Level": 1,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 10,
+          "ew": 2,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "results": [
+        {
+          "ns": 6,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 7,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 5,
+          "contract": {
+            "Level": 2,
+            "Suit": 5,
+            "Declarer": 2,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 16,
+          "contract": {
+            "Level": 1,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 4,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 8,
+          "contract": {
+            "Level": 2,
+            "Suit": 2,
+            "Declarer": 1,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 14,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 11,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "results": [
+        {
+          "ns": 3,
+          "ew": 16,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 11,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 8,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 2,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 14,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 2,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 10,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 4,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 7,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 5,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 8
+          }
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "results": [
+        {
+          "ns": 1,
+          "ew": 8,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 16,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 14,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 2,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 7,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Doubled": true,
+            "Declarer": 3,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 11,
+          "contract": {
+            "Level": 2,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 5,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 2,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 4,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "results": [
+        {
+          "ns": 7,
+          "ew": 9,
+          "contract": {
+            "Level": 2,
+            "Suit": 1,
+            "Declarer": 1,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 12,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 6,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 16,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 15,
+          "contract": {
+            "Level": 2,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 5,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 3,
+          "contract": {
+            "Level": 1,
+            "Suit": 3,
+            "Declarer": 1,
+            "Tricks": 5
+          }
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "results": [
+        {
+          "ns": 1,
+          "ew": 10,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 15,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 12,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 5,
+          "contract": {
+            "Level": 3,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 3,
+          "contract": {
+            "Level": 4,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 16,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 6,
+          "contract": {
+            "Level": 3,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 9,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 8
+          }
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "results": [
+        {
+          "ns": 7,
+          "ew": 9,
+          "contract": {
+            "Level": 3,
+            "Suit": 1,
+            "Doubled": true,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 12,
+          "contract": {
+            "Level": 1,
+            "Suit": 2,
+            "Declarer": 2,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 2,
+          "ew": 15,
+          "contract": {
+            "Level": 2,
+            "Suit": 1,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 16,
+          "contract": {
+            "Level": 2,
+            "Suit": 1,
+            "Declarer": 3,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 5,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 14,
+          "ew": 6,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 2,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 13,
+          "ew": 3,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 2,
+            "Tricks": 6
+          }
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "results": [
+        {
+          "ns": 10,
+          "ew": 14,
+          "contract": {
+            "Level": 1,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 15,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 12,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 16,
+          "ew": 8,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 13,
+          "contract": {
+            "Level": 2,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 3,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 2,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 7,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "results": [
+        {
+          "ns": 16,
+          "ew": 8,
+          "contract": {
+            "Level": 6,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 3,
+            "Tricks": 6
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 15,
+          "contract": {
+            "Level": 5,
+            "Suit": 1,
+            "Doubled": true,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 12,
+          "contract": {
+            "Level": 6,
+            "Suit": 1,
+            "Declarer": 4,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 10,
+          "ew": 14,
+          "contract": {
+            "Level": 3,
+            "Suit": 1,
+            "Declarer": 4,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 13,
+          "contract": {
+            "Level": 5,
+            "Suit": 1,
+            "Declarer": 4,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 2,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 3,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 7,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 3,
+            "Tricks": 12
+          }
+        }
+      ]
+    },
+    {
+      "no": 18,
+      "results": [
+        {
+          "ns": 16,
+          "ew": 8,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Declarer": 3,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 4,
+          "ew": 13,
+          "contract": {
+            "Level": 5,
+            "Suit": 2,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 12,
+          "contract": {
+            "Level": 1,
+            "Suit": 2,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 15,
+          "contract": {
+            "Level": 3,
+            "Suit": 2,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 11,
+          "ew": 2,
+          "contract": {
+            "Level": 3,
+            "Suit": 2,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 10,
+          "ew": 14,
+          "contract": {
+            "Level": 2,
+            "Suit": 2,
+            "Declarer": 4,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 5,
+          "ew": 7,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 3,
+          "contract": {
+            "Level": 1,
+            "Suit": 5,
+            "Doubled": true,
+            "Declarer": 2,
+            "Tricks": 5
+          }
+        }
+      ]
+    },
+    {
+      "no": 19,
+      "results": [
+        {
+          "ns": 3,
+          "ew": 5,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 7
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 4,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 2,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 11,
+          "contract": {
+            "Level": 3,
+            "Suit": 5,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 7,
+          "ew": 2,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 2,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 14,
+          "contract": {
+            "Level": 2,
+            "Suit": 2,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 10,
+          "contract": {
+            "Level": 2,
+            "Suit": 1,
+            "Declarer": 4,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 13,
+          "contract": {
+            "Level": 5,
+            "Suit": 1,
+            "Declarer": 4,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 16,
+          "contract": {
+            "Level": 4,
+            "Suit": 5,
+            "Doubled": true,
+            "Declarer": 3,
+            "Tricks": 11
+          }
+        }
+      ]
+    },
+    {
+      "no": 20,
+      "results": [
+        {
+          "ns": 7,
+          "ew": 2,
+          "contract": {
+            "Level": 5,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 10,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 5,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 11,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 9
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 13,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 16,
+          "contract": {
+            "Level": 2,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 14,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 4,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 3,
+            "Tricks": 10
+          }
+        }
+      ]
+    },
+    {
+      "no": 21,
+      "results": [
+        {
+          "ns": 7,
+          "ew": 2,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Doubled": true,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 3,
+          "ew": 5,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 13
+          }
+        },
+        {
+          "ns": 6,
+          "ew": 11,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 12
+          }
+        },
+        {
+          "ns": 1,
+          "ew": 14,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 8,
+          "ew": 13,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        },
+        {
+          "ns": 9,
+          "ew": 4,
+          "contract": {
+            "Level": 4,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 10
+          }
+        },
+        {
+          "ns": 12,
+          "ew": 16,
+          "contract": {
+            "Level": 4,
+            "Suit": 3,
+            "Doubled": true,
+            "Declarer": 4,
+            "Tricks": 8
+          }
+        },
+        {
+          "ns": 15,
+          "ew": 10,
+          "contract": {
+            "Level": 3,
+            "Suit": 4,
+            "Declarer": 1,
+            "Tricks": 11
+          }
+        }
+      ]
+    }
+  ],
+  "name": "Klubbkveld",
+  "scoring": "IMP;Butler-2;Mean",
+  "a": [
+    "2012",
+    "01",
+    "24"
+  ],
+  "eventDate": "2012-01-24T05:00:00.000Z",
+  "pairs": [
+    {
+      "no": 3,
+      "ne": "Magne Tønnessen",
+      "sw": "Dagfinn Iversen",
+      "neClub": "Rekrutteringsklubben Ruter 7",
+      "swClub": "Kristiansands BK"
+    },
+    {
+      "no": 16,
+      "ne": "Rudi Dahl",
+      "sw": "Marit Dahl",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 7,
+      "ne": "Clas Gundersen",
+      "sw": "Glenn Mathisen",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 6,
+      "ne": "Nina Skoland Kaspersen",
+      "sw": "Thomas Haukland",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 10,
+      "ne": "Jan Erik Eriksen",
+      "sw": "Rita Løvsland",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 13,
+      "ne": "Kenneth Gjernes",
+      "sw": "Martin Eiesland",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 4,
+      "ne": "Henning Klemo",
+      "sw": "Heidi Langeland",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 2,
+      "ne": "Eirik Breen",
+      "sw": "Monica Strandmyr",
+      "neClub": "Rekrutteringsklubben Ruter 7",
+      "swClub": "Kristiansands BK"
+    },
+    {
+      "no": 11,
+      "ne": "Inger Berge",
+      "sw": "Finn Thomassen",
+      "neClub": "Søgne BK"
+    },
+    {
+      "no": 1,
+      "ne": "Øyvind Lindberg",
+      "sw": "Samson Sundfjord",
+      "neClub": "Rekrutteringsklubben Ruter 7",
+      "swClub": "Kristiansands BK"
+    },
+    {
+      "no": 14,
+      "ne": "Roald Hodne Larsen",
+      "sw": "Arvid Thorbjørnsen",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 9,
+      "ne": "Trygve Bryn",
+      "sw": "John Skogheim",
+      "neClub": "Søm BK",
+      "swClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 15,
+      "ne": "Gerd Andersen",
+      "sw": "Wenche Haraldsen Myhre",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 5,
+      "ne": "Bjørg Jernæs",
+      "sw": "Årstein Jernæs",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    },
+    {
+      "no": 8,
+      "ne": "Hanne Cecilie Jensen",
+      "sw": "Paul Otto Johnsen",
+      "neClub": "Rekrutteringsklubben Ruter 7",
+      "swClub": "Søgne BK"
+    },
+    {
+      "no": 12,
+      "ne": "Mette Høgdal Johannessen",
+      "sw": "Dag Flemming Pedersen",
+      "neClub": "Rekrutteringsklubben Ruter 7"
+    }
+  ],
+  "deals": [
+    {
+      "boardNr": 1,
+      "deal": "N:Q53.AKQ.96.K8754 KT98.JT7.KQ43.A6 A64.843.T752.J93 J72.9652.AJ8.QT2"
+    },
+    {
+      "boardNr": 2,
+      "deal": "E:AQ98.QJ98.Q3.Q63 T65.AT7.AK74.JT2 J73.K5432.JT.K85 K42.6.98652.A974"
+    },
+    {
+      "boardNr": 3,
+      "deal": "S:K2.KT983.J97.KQ5 Q874.AQ765.A5.92 65.J2.K832.AJ874 AJT93.4.QT64.T63"
+    },
+    {
+      "boardNr": 4,
+      "deal": "W:AQ9843.7654.7.Q4 J52.AKT3.AK42.86 KT.Q82.Q6.A97532 76.J9.JT9853.KJT"
+    },
+    {
+      "boardNr": 5,
+      "deal": "N:K872.6.AQJ6.JT42 Q965.Q95.K9753.A AJT.T84.T4.K8653 43.AKJ732.82.Q97"
+    },
+    {
+      "boardNr": 6,
+      "deal": "E:JT3.KT73.Q73.AKQ 965.J2.T52.86543 AK4.Q985.A98.972 Q872.A64.KJ64.JT"
+    },
+    {
+      "boardNr": 7,
+      "deal": "S:Q84.K95.Q9754.J2 AT953.AQ432.T8.4 KJ7.J86.KJ6.Q753 62.T7.A32.AKT986"
+    },
+    {
+      "boardNr": 8,
+      "deal": "W:Q4.J542.A9765.K7 T95.T983.KJ.AJT8 J862.AQ.432.9532 AK73.K76.QT8.Q64"
+    },
+    {
+      "boardNr": 9,
+      "deal": "N:9.AT743.QT74.AQ7 AK64.J5.AJ96.T53 JT52.K982.83.J98 Q873.Q6.K52.K642"
+    },
+    {
+      "boardNr": 10,
+      "deal": "E:K94.74.J763.QT82 J5.KQT92.T9.J654 QT6.AJ8653.K52.K A8732..AQ84.A973"
+    },
+    {
+      "boardNr": 11,
+      "deal": "S:AKT743.KT32.K2.K 65.A98.T643.T654 9.Q54.A985.AQ973 QJ82.J76.QJ7.J82"
+    },
+    {
+      "boardNr": 12,
+      "deal": "W:J54.873.A97.Q832 AT82.AKT4.Q6.J76 K763.Q652.T4.KT4 Q9.J9.KJ8532.A95"
+    },
+    {
+      "boardNr": 13,
+      "deal": "N:AJ9.QJ753.3.KQT8 K84.94.KQ96.AJ42 765.A.JT7542.965 QT32.KT862.A8.73"
+    },
+    {
+      "boardNr": 14,
+      "deal": "E:K4.KQJ43.83.QJ86 AT2.9.AQJ965.AT2 QJ75.T765.4.K543 9863.A82.KT72.97"
+    },
+    {
+      "boardNr": 15,
+      "deal": "S:A63.KQJ2.QJ762.5 K84.865.K53.AT62 QJT2.T43.94.J843 975.A97.AT8.KQ97"
+    },
+    {
+      "boardNr": 16,
+      "deal": "W:K54.Q62.K2.KQT72 A863.K43.Q85.983 Q92.AT985.JT94.6 JT7.J7.A763.AJ54"
+    },
+    {
+      "boardNr": 17,
+      "deal": "N:JT9853.Q4.6.A965 A6.K653.AKJ5.832 Q2.AJT872.T9872. K74.9.Q43.KQJT74"
+    },
+    {
+      "boardNr": 18,
+      "deal": "E:752.J98532.94.A7 863.KQT6.Q87.Q98 AJ4..AKJT53.K543 KQT9.A74.62.JT62"
+    },
+    {
+      "boardNr": 19,
+      "deal": "S:KJ82.J76543.9.A6 A73.Q.Q42.KQJ752 Q965.8.AT753.983 T4.AKT92.KJ86.T4"
+    },
+    {
+      "boardNr": 20,
+      "deal": "W:K42.JT952.AT6.KJ 9.Q4.K9842.T9842 QJ8653.A7.753.A6 AT7.K863.QJ.Q753"
+    },
+    {
+      "boardNr": 21,
+      "deal": "N:AKJT964.2.85.873 53.AJT5.T4.AQJT5 Q87.873.AKJ73.K9 2.KQ964.Q962.642"
+    }
+  ]
+}

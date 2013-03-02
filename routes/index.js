@@ -16,8 +16,6 @@ function ensureAuthenticated(req, res, next) {
 exports.setupRoutes = function(app, db) {
     exports.index = renderFunction('index');
     app.get('/', exports.index);
-    exports.start = renderFunction('start');
-    app.get('/start', exports.start);
     
     app.get('/api/tournaments', ensureAuthenticated, function(req, res) {
         db.tournament.findAll(req.club, function(items) {res.send(items);});

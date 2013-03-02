@@ -44,7 +44,7 @@ define([briscoGameRef, 'underscore'], function(briscoGame, _) {
             return briscoGame.Suit.Clubs;
         }
     }
-    me.getDeclarerFromString = function(direction) {
+    me.getDirectionFromString = function(direction) {
         if (direction === 'N') {
             return briscoGame.Direction.North;
         }
@@ -60,7 +60,7 @@ define([briscoGameRef, 'underscore'], function(briscoGame, _) {
     var d = briscoGame.Direction;
     var directions = [d.North, d.East, d.South, d.West];
     me.parseDeal = function(dealString) {
-        var hands = dealString.split(':')[1].split(' ');
+        var hands = dealString.split(' ');
         var ret = {};
         for (var i=0; i<4; i++) ret[directions[i]] = getHand(hands[i]);
         return ret;

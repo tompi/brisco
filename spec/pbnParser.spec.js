@@ -13,7 +13,7 @@ describe('cardFileParser.pbn', function() {
         expect(deals.length).toEqual(32);
     });
     it('should parse deal 1 correctly', function() {
-        expect(deals[0].deal).toEqual("N:752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3");
+        expect(deals[0].deal).toEqual("752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3");
         expect(deals[0].boardNr).toEqual(1);        
     });
 });
@@ -61,13 +61,14 @@ describe('parser', function() {
 var h = briscoGame.Hand;
 var d = briscoGame.Direction;
 describe('entities', function() {
-    var deal = pbnEntities.parseDeal('N:752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3');
+    var deal = pbnEntities.parseDeal('752.AK9.A842.Q86 KQ94.JT876.95.KJ J83.4.K73.T97542 AT6.Q532.QJT6.A3');
     var north = deal[d.North];
     var east = deal[d.East];
     var south = deal[d.South];
     var west = deal[d.West];
     it('should parse ace of spades as first card in west hand', function() {
         expect(west.Cards[0].Denomination).toEqual(briscoGame.Denomination.Ace);
+        expect(west.Cards[0].Suit).toEqual(briscoGame.Suit.Spades);
     });
     it('should parse jack of spades in south hand', function() {
         var SJ = { Denomination: briscoGame.Denomination.Jack, Suit: briscoGame.Suit.Spades};

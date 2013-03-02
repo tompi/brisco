@@ -46,7 +46,7 @@ define(['underscore'], function(_) {
         North: 1,
         South: 2,
         East: 3,
-        West: 4
+        West: 4        
     };
     briscoGame.isNorthSouth = function(direction) {
         return direction === briscoGame.Direction.North || direction === briscoGame.Direction.South;

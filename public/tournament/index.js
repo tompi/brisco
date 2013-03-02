@@ -19,11 +19,11 @@ function TournamentCtrl($scope, tournamentResource) {
     });
 }
 
-
-require(["config"], function() {
-    require(["jquery", "underscore", "jquery-ui", "bootstrap", "angular", "angular-resource", "ui", "ui.bootstrap", "app", "tournamentService", "PairsCtrl", "BoardsCtrl"], function($, _, ui, bs, angular) {
+require(["../config"], function() {
+    require(["jquery", "underscore", "jquery-ui", "bootstrap", "angular", "angular-resource", "ui", "ui.bootstrap", "app", "tournamentService", "PairsCtrl", "BoardsCtrl", "ScoreCtrl", "briscoContractEditor"], 
+    function($, _, ui, bs, angular) {
         $(function() {
-            angular.bootstrap(document, ['psa', 'ui.bootstrap', 'ui']);
+            angular.bootstrap(document, ['psa', 'ui.bootstrap', 'ui', 'brisco']);
         });
     });
 });

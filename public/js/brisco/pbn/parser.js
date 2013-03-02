@@ -28,7 +28,7 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                     currentBoardNo = deal.boardNr;
                     break;
                 case "Deal":
-                    deal.deal = match.content;
+                    deal.deal = normalizeDeal(match.content);
                     break;
                 case "Event":
                     t.name = match.content;
@@ -44,7 +44,6 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                     break;
                 case "EventDate":
                     var a = match.content.split('.');
-                    t.a = a;
                     t.eventDate = new Date(parseInt(a[0], 10), parseInt(a[1], 10)-1, parseInt(a[2],10), 0, 0, 0, 0);
                     break;
                 case "Scoring":
@@ -60,7 +59,7 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
         t.deals = deals;
         return t;
     };
-
+    
     function parseBoardResults(format, lines, ix) {
         var formats = parseFormat(format);
         var ret = [];
@@ -71,6 +70,25 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
             line = lines[ix];
         }
         return ret;
+    }
+
+    // First letter in deal denotes the "starting" hand
+    // So if it is "S", hands are S, W, N, E, if it is "N" hands are N, E, S, W
+    // This function translates to "N"-format...
+    function normalizeDeal(dealString) {        
+        var a = dealString.split(':');
+        if (a[0] === 'N') return a[1];
+        var c = a[1].split(' ');
+        switch (a[0]) {
+            case 'E':
+                return c[3] + ' ' + c[0] + ' ' + c[1] + ' ' + c[2];
+            case 'S':
+                return c[2] + ' ' + c[3] + ' ' + c[0] + ' ' + c[1];
+            case 'W':
+                return c[1] + ' ' + c[2] + ' ' + c[3] + ' ' + c[0];
+            default:
+            return a[1];
+        }        
     }
 
     function parseResult(line, formats) {
@@ -91,7 +109,7 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                 break;
             case "Declarer":
                 // Assumes contract comes first...
-                ret.contract.Declarer = entities.getDeclarerFromString(s);
+                ret.contract.Declarer = entities.getDirectionFromString(s);
                 break;
             case "Result":
                 ret.contract.Tricks = parseInt(s, 10);
@@ -165,6 +183,10 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                 }
                 ret.neClub = clubNe;
                 ret.swClub = clubSw;
+                break;
+            case "TotalScoreIMP":
+            case "TotalScoreMP":
+                ret.score = parseFloat(s);
                 break;
             }
         }

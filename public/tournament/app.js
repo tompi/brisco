@@ -1,6 +1,7 @@
-define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbnEntities'], function(angular, _, briscoHtml, briscoScore, briscoGame, pbnEntities) {
+// TODO: refactor to brisco angular module
+define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbnEntities'],
+function(angular, _, briscoHtml, briscoScore, briscoGame, pbnEntities) {
     var app = angular.module('psa', ['ngResource']);
-
     app.filter('contractFormatter', function() {
         return function(contract) {
             return briscoHtml.getStringFromContract(contract);
@@ -23,6 +24,18 @@ define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbn
             }
         };
     });
+    app.filter('contractResultFormatter', function() {
+        return function(contract, boardNumber) {
+            var tricks = contract.Tricks - ( contract.Level + 6 );
+            var tricksString = tricks.toString();
+            if (tricks>0) tricksString = "+" + tricksString;
+            else if (!tricks) tricksString = "=";
+            return briscoHtml.getStringFromContract(contract) + ' ' +
+                briscoHtml.getStringFromDirection(contract.Declarer) + ' ' + tricksString +
+                ' : ' + briscoScore.getNorthSouthPointsWithBoardNo(contract, boardNumber);
+        };
+    });    
+    
     app.filter('boardInfoFormatter', function() {
         return function(boardNumber) {
             var dealer = briscoHtml.getShortDealerFromBoardNumber(boardNumber);
@@ -56,11 +69,12 @@ define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbn
     });
 
     var h = briscoGame.Hand;
+
     function getHandHtml(hand) {
-        var ret = getSuitDiv(h.getCardsWithinSuit(hand,s.Spades), 'spades');
-        ret += getSuitDiv(h.getCardsWithinSuit(hand,s.Hearts), 'hearts');
-        ret += getSuitDiv(h.getCardsWithinSuit(hand,s.Diamonds), 'diamonds');
-        ret += getSuitDiv(h.getCardsWithinSuit(hand,s.Clubs), 'clubs');
+        var ret = getSuitDiv(h.getCardsWithinSuit(hand, s.Spades), 'spades');
+        ret += getSuitDiv(h.getCardsWithinSuit(hand, s.Hearts), 'hearts');
+        ret += getSuitDiv(h.getCardsWithinSuit(hand, s.Diamonds), 'diamonds');
+        ret += getSuitDiv(h.getCardsWithinSuit(hand, s.Clubs), 'clubs');
         return ret;
     }
 
@@ -78,5 +92,13 @@ define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbn
         return ret;
     }
 
+    app.filter('pairsFormatter', function(tournamentResource) {
+        return function(result) {
+            var ns = tournamentResource.getPair(result.ns);
+            var ew = tournamentResource.getPair(result.ew);
+            var ret = 'North/South: ' + ns.ne + ' / ' + ns.sw;
+            return ret + '\nEast/West: ' + ew.ne + ' / ' + ew.sw;
+        };
+    });
     return app;
 });

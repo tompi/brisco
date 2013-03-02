@@ -1,5 +1,5 @@
-<div class="row-fluid">
-  <table class="table table-striped table-bordered table-hover contracts">
+<div class="row-fluid" ng-controller="ScoreCtrl">
+  <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th class="number">No</th>
@@ -9,42 +9,14 @@
         <th class="center">South/West</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td class="number">1</td>
-        <td class="number">57.23</td>
-        <td class="number">5</td>
-        <td class="center">Shoobi Doobi</td>
-        <td class="center">Scuba Diva</td>
-      </tr>
-      <tr>
-        <td class="number">2</td>
-        <td class="number">41.20</td>
-        <td class="number">2</td>
-        <td class="center">Zai Muhmaad</td>
-        <td class="center">Zoe Zilkaliska</td>
-      </tr>
-      <tr>
-        <td class="number">3</td>
-        <td class="number">4.38</td>
-        <td class="number">3</td>
-        <td class="center">Donald Dietrich</td>
-        <td class="center">Mardon Nordam</td>
-      </tr>
-      <tr>
-        <td class="number">4</td>
-        <td class="number">-70.23</td>
-        <td class="number">1</td>
-        <td class="center">John Doe</td>
-        <td class="center">William Bourough</td>
-      </tr>
-      <tr>
-        <td class="number">5</td>
-        <td class="number">-101.12</td>
-        <td class="number">4</td>
-        <td class="center">Debbie Harrods</td>
-        <td class="center">Milla Vanilla</td>
-      </tr>
+    <tbody id="pairsTableBody">
+        <tr ng-repeat="pair in pairs">
+            <td class="number">{{$index + 1}}</td>
+            <td class="number">{{pair.score}}</td>
+            <td class="number">{{pair.no}}</td>
+            <td class="center">{{pair.ne}}</td>
+            <td class="center">{{pair.sw}}</td>
+        </tr>
     </tbody>
   </table>
 </div>

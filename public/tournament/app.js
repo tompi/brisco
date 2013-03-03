@@ -24,14 +24,15 @@ function(angular, _, briscoHtml, briscoScore, briscoGame, pbnEntities) {
             }
         };
     });
-    app.filter('contractResultFormatter', function() {
+    app.filter('contractResultFormatter', function() {        
         return function(contract, boardNumber) {
+            if (!contract.Level) return 'pass';
             var tricks = contract.Tricks - ( contract.Level + 6 );
             var tricksString = tricks.toString();
             if (tricks>0) tricksString = "+" + tricksString;
             else if (!tricks) tricksString = "=";
             return briscoHtml.getStringFromContract(contract) + ' ' +
-                briscoHtml.getStringFromDirection(contract.Declarer) + ' ' + tricksString +
+                briscoHtml.getShortStringFromDirection(contract.Declarer) + ' ' + tricksString +
                 ' : ' + briscoScore.getNorthSouthPointsWithBoardNo(contract, boardNumber);
         };
     });    

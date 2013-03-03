@@ -33,19 +33,25 @@
         <div class="hide" modal="addResultModalShown" close="hideAddResultModal()">
             <div class="modal-header">
                 <button type="button" class="close" ng-click="hideAddResultModal()">&times;</button>
-                <h3>Add result</h3>
+                <h3>Result for board {{activeBoard.no}}</h3>
             </div>
             <div class="modal-body">
                 <div class="row-fluid">
-                    <div class="span6">
-                        <label>North/South pair number</label>
-                        <input type="text" ng-model="resultBeingEdited.ns"
-                        />
+                    <div class="span2 offset2">
+                        <label>Table</label>
+                        <input class="input-mini" type="number" min="1" ng-model="resultBeingEdited.table"/>
                     </div>
-                    <div class="span6">
-                        <label>East/West pair number</label>
-                        <input type="text" ng-model="resultBeingEdited.ew"
-                        />
+                    <div class="span2">
+                        <label>N/S pair</label>
+                        <input class="input-mini" type="number" min="1" ng-model="resultBeingEdited.ns"/>
+                    </div>
+                    <div class="span2">
+                        <label>E/W pair</label>
+                        <input class="input-mini" type="number" min="1" ng-model="resultBeingEdited.ew"/>
+                    </div>
+                    <div class="span4">
+                    <label>Contract</label>
+                    <div class="contract" ng-bind-html-unsafe="resultBeingEdited.contract | contractResultFormatter:activeBoard.no"></div>                    
                     </div>
                 </div>
                 <div brisco-contract-editor ng-model="resultBeingEdited.contract"></div>
@@ -67,6 +73,7 @@
             <table class="table table-striped table-bordered table-hover contracts">
                 <thead>
                     <tr>
+                        <th class="number">Table</th>
                         <th class="number">NS</th>
                         <th class="number">EW</th>
                         <th class="center">Contract</th>
@@ -80,6 +87,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="result in activeBoard.results" title="{{result | pairsFormatter}}" ng-click="editResult($index)">
+                        <td class="number">{{result.table}}</td>
                         <td class="number">{{result.ns}}</td>
                         <td class="number">{{result.ew}}</td>
                         <td class="center" ng-bind-html-unsafe="result.contract | contractFormatter"></td>

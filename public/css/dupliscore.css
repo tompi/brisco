@@ -39,29 +39,35 @@ table.cards div.center { border: 1px solid #DDD; border-radius: 10px; }
 table.cards td.info { color: #DDD; font-weight: bold; text-align: right; }
 
 /* Boards */
-.bid-pad div.bidbutton {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.bid-pad .bidbutton {
+    padding: 10px;
     margin-bottom: 2.5%;
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
-    border: 2px solid #E5E5E5;
+    border: 4px solid #E5E5E5;
     border-radius: 7px;
     cursor: pointer;
+    min-width: 70px;
 }
 
-.bid-pad div.contract {
-    font-size: 1.8em;
+.contract, .tricksLabel {
+    font-size: 1.6em;
 }
 
-.bid-pad div.bidbutton:hover {
-    border: 2px dotted #d58604;
+.bid-pad table {
+    margin-left: auto;
+    margin-right: auto;      
 }
 
-.bid-pad div.bidbutton.active {
-    border: 2px solid #d58604;
+.bid-pad .bidbutton:hover {
+    border: 4px dotted #d58604;
 }
+
+.bid-pad .bidbutton.active {
+    border: 4px solid #d58604;
+}
+.bid-pad .doubled.active { border: 4px solid rgb(165, 74, 14); }
 
 table.contracts tbody tr:hover {
     cursor: pointer;

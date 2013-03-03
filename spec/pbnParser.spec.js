@@ -43,6 +43,7 @@ describe('ruter71.pbn', function() {
         expect(r.scoreNs).toEqual(200);
         expect(r.resultNs).toEqual(5);
         expect(r.resultEw).toEqual(-5);
+        expect(r.table).toEqual(2);
     });
     it('should parse date as 2012.01.24', function() {
         expect(t.eventDate.getFullYear()).toEqual(2012);

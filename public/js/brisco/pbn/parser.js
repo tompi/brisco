@@ -98,6 +98,9 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
             var f = formats[i];
             var s = line.substr(f.start, f.stop - f.start);
             switch (f.name) {
+            case "Table":
+                ret.table = parseInt(s, 10);
+                break;
             case "PairId_NS":
                 ret.ns = parseInt(s, 10);
                 break;

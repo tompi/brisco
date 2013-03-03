@@ -70,15 +70,15 @@ exports.init = function(app, config, routes, passport, db) {
 
     app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
         failureRedirect: '/login'
-    }), routes.start);
+    }), function(req, res) {res.redirect('/start');});
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
         failureRedirect: '/login'
-    }), routes.start);
+    }), function(req, res) {res.redirect('/start');});
 
     app.get('/oauth2callback', passport.authenticate('google', {
         failureRedirect: '/login'
-    }), routes.start);
+    }), function(req, res) {res.redirect('/start');});
 
     app.get('/logout', function(req, res) {
         req.logout();

@@ -38,11 +38,15 @@
     </div>
     <div class="modal-body">
       <label>Pair Number</label>
-      <input type="text" class="input-small" id="pairNo" ng-model="pairNo"/>
+      <input type="number" step="1" min="1" max="9999" class="input-small" id="pairNo" ng-model="pairNo"/>
       <label>North/East</label>
       <input type="text" id="nameNE" ng-model="nameNE"/>
       <label>South/West</label>
-      <input type="text" id="nameSW" ng-model="nameSW"/>                        
+      <input type="text" id="nameSW" ng-model="nameSW"/>
+      <div class="alert alert-error" ng-show="invalidPair">
+          <b>Invalid pair!</b>
+          <p>{{invalidPairMessage}}</p>
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn" ng-click="close()">Cancel</button>

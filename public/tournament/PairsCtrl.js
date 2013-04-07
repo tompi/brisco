@@ -36,6 +36,11 @@ define(['angular', 'underscore', 'app'], function(angular, _, app) {
             return i;
         };
         $scope.savePair = function() {
+            if (!$scope.pairNo || !$scope.nameNE || !$scope.nameSW) {
+                $scope.invalidPair = true;
+                $scope.invalidPairMessage = 'You need to fill out all 3 fields...';
+                return;
+            } 
             var pairToSave = $scope.findPair($scope.pairNo);
             if (pairToSave) {
                 pairToSave.no = $scope.pairNo;

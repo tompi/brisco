@@ -1,7 +1,7 @@
 // TODO: refactor to brisco angular module
 define(['angular', 'underscore', 'briscoHtml', 'briscoScore', 'briscoGame', 'pbnEntities'],
 function(angular, _, briscoHtml, briscoScore, briscoGame, pbnEntities) {
-    var app = angular.module('psa', ['ngResource']);
+    var app = angular.module('tournament', ['ngResource']);
     app.filter('contractFormatter', function() {
         return function(contract) {
             return briscoHtml.getStringFromContract(contract);

@@ -8,7 +8,9 @@ require.config({
     "underscore": "../js/lib/underscore",
     "ui": "../js/lib/angular/angular-ui",
     "ui.bootstrap": "../js/lib/angular/bootstrap",
-    "tournamentService": "../js/api/tournament",
+    "ngUpload": "../js/lib/angular/ngUpload",
+    "tournamentResource": "../js/api/tournament",
+    "tournamentsResource": "../js/api/tournaments",
     "briscoGame": "../js/brisco/briscoGame",
     "briscoScore": "../js/brisco/briscoScore",
     "briscoHtml": "../js/brisco/briscoHtml",
@@ -21,6 +23,7 @@ require.config({
     angular: { exports: 'angular' },
     'angular-resource': { deps: ['angular'] },
     'ui.bootstrap': { deps: ['angular'] },
+    'ngUpload': { deps: ['angular'] },
     'ui': { deps: ['angular'] }
   }
 });

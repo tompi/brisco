@@ -22,8 +22,21 @@ exports.init = function(mongoClient) {
         });
     };
 
+    me.upload = function(user, club, tournament, next) {
+        var t = tournament || {};
+        t.club = club || 0;
+        t.createdBy = user._id;
+        t.createdTime = new Date();
+        
+        mongoClient.collection('tournaments').insert(t, {
+            safe: true
+        }, function(err, result) {
+            next(result[0]._id);
+        });
+    };
+
     me.findAll = function(club, next) {
-        mongoClient.collection('tournaments').find({'club': club}).toArray(function(err, items) {
+        mongoClient.collection('tournaments').find({'club': club || 0}).toArray(function(err, items) {
             next(items);
         });
     };

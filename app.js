@@ -16,6 +16,7 @@ var app = express();
 
 app.configure(function() {
     app.set('port', process.env.PORT || 3000);
+    app.set('host', process.env.IP || '127.0.0.1');
     app.set('views', __dirname + '/views');
     app.engine('ejs', locals);
     app.locals._layoutFile = 'layout.ejs';

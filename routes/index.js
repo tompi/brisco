@@ -1,4 +1,5 @@
  var fs = require('fs');
+ var pbnParser = require("../public/js/brisco/pbn/parser");
  
  function renderFunction(view) {
      return function(req, res) {
@@ -35,14 +36,18 @@
          });
      });
 
-     app.post('/tournaments/upload', function(req, res) {
-         res.setHeader('Content-Type', 'text/html');
+     app.post('/tournaments/upload', ensureAuthenticated, function(req, res) {
          if (req.files.length === 0 || req.files.file.size === 0) res.send('No file uploaded at ' + new Date().toString());
          else {
              var file = req.files.file;
-             fs.unlink(file.path, function(err) {
+             var path = file.path + '/' +  file.name;
+             console.log(file);
+             fs.readFile(file.path, function(err, data) {
                  if (err) throw err;
-                 else res.send('<b>"' + file.name + '"<b> uploaded to the server at ' + new Date().toString());
+                 var tournament = pbnParser.parse(data.toString());
+                 db.tournament.upload(req.user, req.club, tournament, function(tournamentId) {
+                    res.send("Saved tournament with id: " + tournamentId);
+                 });
              });
          }
      });

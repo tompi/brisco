@@ -1,73 +1,70 @@
 <!DOCTYPE html>
-<html>    
-  <head>
-    <title>DupliScore</title>
-    <link rel='stylesheet' href='../css/bootstrap.css' />
-    <link rel='stylesheet' href='../css/font-awesome.min.css' />
-    <link rel='stylesheet' href='../css/angular-ui.css' />
-    <link rel='stylesheet' href='../css/jquery-ui/jquery-ui.min.css' />
-    <link rel='stylesheet' href='../css/dupliscore.css' />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-  </head>
-
-  <body class="container">
-    <ng:include src="'../topmenu.html'"></ng:include>
-    <div ng-controller="TournamentsCtrl">
-    <div class="row-fluid" ng-cloak>
-      <div>
-        <h2>Tournaments</h2>
-        <a href="#" ng-click="openUploadModal()" class="btn">
-            <i class="icon-upload"></i> Upload existing tournament                
-        </a>
-        <a href="#" ng-click="create" class="btn">
-            <i class="icon-file"></i> Create new tournament                
-        </a>
-        <h3>Existing</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Created by</th>
-                </tr>
-            </thead>
-            <tbody ng-repeat="t in tournaments">                
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>{{t.createdBy.displayName}}</td>
-                </tr>
-            </tbody>
-        </table>
-      </div>
-      <div class="hide" modal="fileModalOpen" close="close()">
-        <form ng-upload action="/tournaments/upload">
-        <div class="modal-header">
-          <h4>Upload tournament</h4>
-        </div>
-        <div class="modal-body">
-            <p>
-                Upload a file containing your tournament.                
-            </p>
-            <p>
-                The file must be on the pbn-format.
-                A program for converting to PBN from various formats
-                can be found <a href="http://www.rpbridge.net/rput.htm" target="_new">here</a>.
-            </p>
-            <p>
-                       <label>File:</label>
-                       <input type="file" name="file" />
-                   </p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" ng-click="close()">Cancel</button>
-           <input type="submit" class="btn btn-primary" value="Submit" 
-             upload-submit="uploadComplete(contents, completed)" />
-        </div>
-               </form>            
-      </div>
-      
-    </div>
-    <script src="../js/lib/require.js" data-main="index.js"></script>
-  </body>
+<html>
+    
+    <head>
+        <title>DupliScore</title>
+        <link rel='stylesheet' href='../css/bootstrap.css' />
+        <link rel='stylesheet' href='../css/font-awesome.min.css' />
+        <link rel='stylesheet' href='../css/angular-ui.css' />
+        <link rel='stylesheet' href='../css/jquery-ui/jquery-ui.min.css' />
+        <link rel='stylesheet' href='../css/dupliscore.css' />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
+    </head>
+    
+    <body class="container">
+        <ng:include src="'../topmenu.html'"></ng:include>
+        <div ng-controller="TournamentsCtrl">
+            <div class="row-fluid" ng-cloak>
+                <div>
+                    <h2>Tournaments</h2>
+                    <p>
+                        <a href="#" ng-click="openUploadModal()" class="btn">
+                            <i class="icon-upload"></i> Upload existing tournament                
+                        </a>
+                        <a href="#" ng-click="create" class="btn">
+                            <i class="icon-file"></i> Create new tournament                
+                        </a>
+                        <h3>Existing</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Created by</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="t in tournaments">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{t.createdBy.displayName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+                <div class="hide" modal="fileModalOpen" close="close()">
+                    <form ng-upload action="/tournaments/upload" method="POST">
+                        <div class="modal-header">
+                            <h4>Upload tournament</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Upload a file containing your tournament.</p>
+                            <p>The file must be on the pbn-format. A program for converting to PBN from
+                                various formats can be found
+                                <a href="http://www.rpbridge.net/rput.htm" target="_new">here</a>.</p>
+                            <p>
+                                <label>File:</label>
+                                <input type="file" name="file" />
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn" ng-click="close()" value="Cancel"/>
+                            <input type="submit" class="btn btn-primary" value="Submit" upload-submit="uploadComplete(content, completed)"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script src="../js/lib/require.js" data-main="index.js"></script>
+    </body>
 </html>

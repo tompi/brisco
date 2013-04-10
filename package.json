@@ -20,7 +20,8 @@
     "grunt-cli": "*",
     "grunt-contrib-less": "*",
     "grunt-jasmine-node": "*",
-    "grunt-contrib-jshint": "*"
+    "grunt-contrib-jshint": "*",
+    "iconv": "*"
   },
   "engines": {
     "node": "0.8.x",

@@ -1,4 +1,4 @@
-
+var ObjectID = require('mongodb').ObjectID;
 var pbnParser = require("../public/js/brisco/pbn/parser");
 var fs = require("fs");
 
@@ -42,8 +42,8 @@ exports.init = function(mongoClient) {
     };
 
     me.findById = function(id, club, next) {
-        mongoClient.collection('tournaments').find({'_id': id, 'club': club}).each(function(err, item) {
-            next(item);
+        mongoClient.collection('tournaments').find({'_id': ObjectID(id), 'club': club}).toArray(function(err, items) {
+            next(items[0]);
         });
     };
     

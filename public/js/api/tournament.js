@@ -1,8 +1,8 @@
 define(['app', 'underscore'], function(app, _) {
-    app.factory('tournamentResource', function($http, $routeParams, $q) {
+    app.factory('tournamentResource', function($http, $location, $q) {
         var me = {};
         var t;
-        var promise = $http.get('/api/testTournament?id=' + $routeParams.id);
+        var promise = $http.get('/api/tournament/' + $location.$$path.substr(1));
         me.getTournament = function(callback) {
             if (callback) $q.when(promise).then(function(result) {t = result.data; callback(t);});
             return promise;

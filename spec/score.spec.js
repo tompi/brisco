@@ -1,7 +1,7 @@
 /*global describe,it,expect*/
 
-var brisco = require('../public/js/brisco/briscoGame');
-var score = require('../public/js/brisco/briscoScore');
+var brisco = require('../client/js/brisco/briscoGame');
+var score = require('../client/js/brisco/briscoScore');
 
 describe('score', function() {
 

@@ -3,7 +3,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            files: ['*.js', 'public/js/brisco/**/*.js', 'db/**/*.js']
+            files: ['*.js', 'client/js/brisco/**/*.js', 
+                'client/js/api/**/*.js', 'server/db/**/*.js']
         },
         jasmine_node: {
             requirejs: false,
@@ -17,10 +18,10 @@ module.exports = function(grunt) {
         less: {
             development: {
                 options: {
-                    paths: ["public/css/bootstrap"]
+                    paths: ["client/css/bootstrap"]
                 },
                 files: {
-                    "public/css/bootstrap.css": "public/css/bootstrap/all.less"
+                    "client/css/bootstrap.css": "client/css/bootstrap/all.less"
                 }
             }
         }

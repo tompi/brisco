@@ -1,6 +1,6 @@
 /*global describe,it,expect*/
 
-var brisco = require('../public/js/brisco/briscoGame');
+var brisco = require('../client/js/brisco/briscoGame');
 
 describe('brisco.Direction', function() {
     it('should say north is northsouth', function() {

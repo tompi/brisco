@@ -21,7 +21,10 @@
     "grunt-contrib-less": "*",
     "grunt-jasmine-node": "*",
     "grunt-contrib-jshint": "*",
-    "iconv": "*"
+    "iconv": "*",
+    "memory-cache": "*",
+    "q": "*",
+    "underscore": "*"
   },
   "engines": {
     "node": "0.8.x",

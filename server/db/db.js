@@ -20,7 +20,8 @@ exports.init = function(app, config) {
         client.authenticate(config.MONGO_USER, config.MONGO_PASSWD, function(err, success) {
             if (!err) {
                 me.user = user.init(client);
-                me.tournament = tournament.init(client);
+                me.tournament = tournament.init(client, me.user);
+                me.club = tournament.init(client);
             }
         });
     });    

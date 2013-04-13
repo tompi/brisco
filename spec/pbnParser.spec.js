@@ -1,8 +1,8 @@
 /*global describe,it,expect*/
 
-var cardFileParser = require('../public/js/brisco/pbn/parser');
-var pbnEntities = require('../public/js/brisco/pbn/entities');
-var briscoGame = require('../public/js/brisco/briscoGame');
+var cardFileParser = require('../client/js/brisco/pbn/parser');
+var pbnEntities = require('../client/js/brisco/pbn/entities');
+var briscoGame = require('../client/js/brisco/briscoGame');
 var _ = require("underscore");
 var fs = require("fs");
 var pbnFile = fs.readFileSync(__dirname + "/CardFiles/test1.pbn", "utf-8");

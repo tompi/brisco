@@ -5,22 +5,17 @@ define(['angular', 'underscore', 'app'], function(angular, _, app) {
             $scope.pairs = t.pairs;
         });
         $scope.addPair = function() {
-            $scope.pairNo = $scope.getNextPairNo();
+            $scope.editingPair = { 
+                no: $scope.getNextPairNo(),
+                ne: {}, sw: {}
+            };
             $scope.shouldBeOpen = true;
         };
         $scope.editPair = function(pairNo) {
-            var pairToEdit = $scope.findPair(pairNo);
-            if (pairToEdit) {
-                $scope.pairNo = pairToEdit.no;
-                $scope.nameNE = pairToEdit.ne;
-                $scope.nameSW = pairToEdit.sw;
-            }
+            $scope.editingPair = angular.copy($scope.findPair(pairNo));
             $scope.shouldBeOpen = true;
         };
         $scope.close = function() {
-            $scope.pairNo = '';
-            $scope.nameNE = '';
-            $scope.nameSW = '';
             $scope.shouldBeOpen = false;
         };
         $scope.findPair = function(pairNo) {
@@ -36,23 +31,19 @@ define(['angular', 'underscore', 'app'], function(angular, _, app) {
             return i;
         };
         $scope.savePair = function() {
-            if (!$scope.pairNo || !$scope.nameNE || !$scope.nameSW) {
+            if (!$scope.editingPair.no || !$scope.editingPair.ne.name || !$scope.editingPair.sw.name) {
                 $scope.invalidPair = true;
-                $scope.invalidPairMessage = 'You need to fill out all 3 fields...';
+                $scope.invalidPairMessage = 'You need to fill out at least pairnumber and names...';
                 return;
             } 
-            var pairToSave = $scope.findPair($scope.pairNo);
+            var pairToSave = $scope.findPair($scope.editingPair.no);
             if (pairToSave) {
-                pairToSave.no = $scope.pairNo;
-                pairToSave.ne = $scope.nameNE;
-                pairToSave.sw = $scope.nameSW;
+                pairToSave.no = $scope.editingPair.no;
+                pairToSave.ne = $scope.editingPair.ne;
+                pairToSave.sw = $scope.editingPair.sw;
             }
             else {
-                $scope.pairs.push({
-                    no: $scope.pairNo,
-                    ne: $scope.nameNE,
-                    sw: $scope.nameSW
-                });
+                $scope.pairs.push($scope.editingPair);
             }
             $scope.close();
         };

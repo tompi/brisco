@@ -21,7 +21,7 @@
                         <a href="#" ng-click="openUploadModal()" class="btn">
                             <i class="icon-upload"></i> Upload existing tournament                
                         </a>
-                        <a href="#" ng-click="create" class="btn">
+                        <a href="#" ng-click="create()" class="btn">
                             <i class="icon-file"></i> Create new tournament                
                         </a>
                         <h3>Existing</h3>
@@ -36,7 +36,7 @@
                             <tbody ng-repeat="t in tournaments">
                                 <tr>
                                     <td><a href="/tournament/#{{t._id}}">{{t.name}}</a></td>
-                                    <td>{{t.eventDate}}</td>
+                                    <td>{{t.eventDate  | date:'yyyy-MM-dd'}}</td>
                                     <td>{{t.createdByDetails.displayName}}</td>
                                 </tr>
                             </tbody>

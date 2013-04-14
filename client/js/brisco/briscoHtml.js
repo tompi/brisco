@@ -21,8 +21,10 @@ define([briscoGameRef], function(briscoGame) {
             return '<span class="red">&diams;</span>';
         case s.Clubs:
             return '&clubs;';
-        default:
+        case s.NoTrump:
             return 'NT';
+        default:
+            return '';
         }
     };
 

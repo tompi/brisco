@@ -8,7 +8,7 @@ define([briscoGameRef, 'underscore'], function(briscoGame, _) {
     var me = {};
 
     me.getContractFromString = function(s) {
-        if (!s) return null;
+        if (!s || s === '-') return null;
 
         var ret = {};
         if (s[0] === 'P') {
@@ -16,6 +16,7 @@ define([briscoGameRef, 'underscore'], function(briscoGame, _) {
             return ret;
         }
         ret.Level = parseInt(s[0], 10);
+        if (isNaN(ret.Level)) return null;
         ret.Suit = getSuitFromString(s[1]);
         if (s.indexOf('XX') > 0 || s.indexOf('R') > 0) ret.ReDoubled = true;
         if (ret.ReDoubled) {

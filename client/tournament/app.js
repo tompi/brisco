@@ -97,8 +97,10 @@ function(angular, _, briscoHtml, briscoScore, briscoGame, pbnEntities) {
         return function(result) {
             var ns = tournamentResource.getPair(result.ns);
             var ew = tournamentResource.getPair(result.ew);
-            var ret = 'North/South: ' + ns.ne + ' / ' + ns.sw;
-            return ret + '\nEast/West: ' + ew.ne + ' / ' + ew.sw;
+            var ret = '';
+            if (ns) ret += 'North/South: ' + ns.ne.name + ' / ' + ns.sw.name + '\n';
+            if (ew) ret += 'East/West: ' + ew.ne.name + ' / ' + ew.sw.name;
+            return ret;
         };
     });
     return app;

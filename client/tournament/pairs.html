@@ -14,17 +14,30 @@
     <table id="pairsTable" class="table table-striped table-bordered table-hover contracts">
       <thead>
         <tr>
-          <th class="number">Pair</th>
-          <th class="center">North/East</th>
-          <th class="center">South/West</th>
+          <th rowspan="2" class="number">Pair</th>
+          <th colspan="3" class="center">North/East</th>
+          <th colspan="3" class="center">South/West</th>
           <th></th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Club</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Club</th>
+            <th></th>
         </tr>
       </thead>
       <tbody id="pairsTableBody">
         <tr ng-repeat="pair in pairs" ng-click="editPair(pair.no)">
           <td class="edit number">{{pair.no}}</td>
-          <td class="edit center">{{pair.ne}}</td>
-          <td class="edit center">{{pair.sw}}</td>
+          <td class="edit center">{{pair.ne.name}}</td>
+          <td class="edit number">{{pair.ne.memberId}}</td>
+          <td class="edit center">{{pair.ne.club}}</td>
+          <td class="edit center">{{pair.sw.name}}</td>
+          <td class="edit number">{{pair.sw.memberId}}</td>
+          <td class="edit center">{{pair.sw.club}}</td>
           <td class="delete center">
             <a href="" ng-click="removePair($index)"><i class="icon-minus-sign"></i> Remove</a>                                    
           </td>
@@ -38,11 +51,21 @@
     </div>
     <div class="modal-body">
       <label>Pair Number</label>
-      <input type="number" step="1" min="1" max="9999" class="input-small" id="pairNo" ng-model="pairNo"/>
-      <label>North/East</label>
-      <input type="text" id="nameNE" ng-model="nameNE"/>
-      <label>South/West</label>
-      <input type="text" id="nameSW" ng-model="nameSW"/>
+      <input type="number" step="1" min="1" max="9999" class="input-small" ng-model="editingPair.no"/>
+      <h4>North/East</h4>
+      <label>Name</label>
+      <input type="text" ng-model="editingPair.ne.name"/>
+      <label>Member id</label>
+      <input type="text" ng-model="editingPair.ne.memberId"/>
+      <label>Club</label>
+      <input type="text" ng-model="editingPair.ne.club"/>
+      <h4>South/West</h4>
+      <label>Name</label>
+      <input type="text" ng-model="editingPair.sw.name"/>
+      <label>Member id</label>
+      <input type="text" ng-model="editingPair.sw.memberId"/>
+      <label>Club</label>
+      <input type="text" ng-model="editingPair.sw.club"/>
       <div class="alert alert-error" ng-show="invalidPair">
           <b>Invalid pair!</b>
           <p>{{invalidPairMessage}}</p>

@@ -112,10 +112,10 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                 break;
             case "Declarer":
                 // Assumes contract comes first...
-                ret.contract.Declarer = entities.getDirectionFromString(s);
+                if (ret.contract) ret.contract.Declarer = entities.getDirectionFromString(s);
                 break;
             case "Result":
-                ret.contract.Tricks = parseInt(s, 10);
+                if (ret.contract) ret.contract.Tricks = parseInt(s, 10);
                 break;
             case "Score_NS":
                 parsedString = parsePbnString(s);
@@ -172,20 +172,28 @@ define(['./entities', 'xregexp'], function(entities, xregexp) {
                 break;
             case "Names":
                 var n = parsePbnString(s).split(' - ');
-                ret.ne = n[0];
-                ret.sw = n[1];
+                ret.ne = {name: n[0]};
+                ret.sw = {name: n[1]};
+                break;
+            case "MemberID1":
+                var m1 = parsePbnString(s);
+                ret.ne.memberId = m1;
+                break;
+            case "MemberID2":
+                var m2 = parsePbnString(s);
+                ret.sw.memberId = m2;
                 break;
             case "Club":
                 var c = parsePbnString(s);
                 var clubNe = c;
                 var clubSw = c;
-                if (c.indexOf(' - ')) {
+                if (c.indexOf(' - ') > 0) {
                     c = c.split(' - ');
                     clubNe = c[0];
                     clubSw = c[1];
                 }
-                ret.neClub = clubNe;
-                ret.swClub = clubSw;
+                ret.ne.club = clubNe;
+                ret.sw.club = clubSw;
                 break;
             case "TotalScoreIMP":
             case "TotalScoreMP":

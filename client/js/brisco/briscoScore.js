@@ -34,6 +34,7 @@ define([briscoGameRef], function(briscoGame) {
 			[ 51, 55, 61, 66, 71, 79, 87, 94, 100, 106, 112, 123 ]];
 
     briscoScore.getNorthSouthPointsWithBoardNo = function(contract, boardNumber) {
+        if (!contract) return null;
 		var direction = briscoGame.Direction.North;
 		if (contract.Declarer) {
 			direction = contract.Declarer;

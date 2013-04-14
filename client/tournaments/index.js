@@ -1,10 +1,12 @@
 
-function TournamentsCtrl($scope, tournamentsResource) {
+function TournamentsCtrl($scope, tournamentsResource, $q) {
+    $scope.updateTournaments = function(tournaments) {
+        $scope.tournaments = tournaments.data;
+        $scope.tournamentsLoaded = true;        
+    };
     $scope.tournamentsLoaded = false;
-    tournamentsResource.getTournaments(function(tournaments) {
-        $scope.tournaments = tournaments;
-        $scope.tournamentsLoaded = true;
-    });    
+    $q.when(tournamentsResource.getTournaments())
+      .then($scope.updateTournaments);    
     $scope.fileModalOpen = false;
 
     $scope.openUploadModal = function() {
@@ -15,13 +17,9 @@ function TournamentsCtrl($scope, tournamentsResource) {
     };
   $scope.uploadComplete = function (content, completed) {
     if (completed && content && content.length > 0) {        
-      $scope.response = JSON.parse(content); // Presumed content is a json string!
-      $scope.response.style = {
-        color: $scope.response.color,
-        "font-weight": "bold"
-      };
-      // TODO: update tournament list
-      $scope.fileModalOpen = false;
+        $q.when(tournamentsResource.getTournaments())
+          .then($scope.updateTournaments);    
+        $scope.fileModalOpen = false;
     }
   };    
 }

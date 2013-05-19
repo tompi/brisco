@@ -45,7 +45,6 @@ exports.setupRoutes = function(app, db) {
         if (req.files.length === 0 || req.files.file.size === 0) res.send('No file uploaded at ' + new Date().toString());
         else {
             var file = req.files.file;
-            var path = file.path + '/' + file.name;
             console.log(file);
             fs.readFile(file.path, function(err, data) {
                 if (err) throw err;

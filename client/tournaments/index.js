@@ -5,7 +5,7 @@ function TournamentsCtrl($scope, tournamentsResource, $q) {
         $scope.tournamentsLoaded = true;        
     };
     $scope.tournamentsLoaded = false;
-    $q.when(tournamentsResource.getTournaments())
+    tournamentsResource.getTournaments()
       .then($scope.updateTournaments);    
     $scope.fileModalOpen = false;
 
@@ -17,8 +17,8 @@ function TournamentsCtrl($scope, tournamentsResource, $q) {
     };
   $scope.uploadComplete = function (content, completed) {
     if (completed && content && content.length > 0) {        
-        $q.when(tournamentsResource.getTournaments())
-          .then($scope.updateTournaments);    
+        tournamentsResource.updateTournaments()
+          .then($scope.updateTournaments);
         $scope.fileModalOpen = false;
     }
   };    

@@ -1,5 +1,6 @@
 var cache = require('../cache');
 var Q = require('q');
+var ObjectID = require('mongodb').ObjectID;
 
 exports.init = function(client) {
 
@@ -54,6 +55,15 @@ exports.init = function(client) {
             email: user.emails[0]
         };
     }
+
+    me.findById = function(id, next) {
+        client.collection('users').find({
+            'id': id
+        }).toArray(function(err, items) {
+            next(items[0]);
+        });
+    };
+
 
     return me;
 };

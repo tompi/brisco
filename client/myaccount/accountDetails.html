@@ -1,0 +1,10 @@
+<div ng-controller="AccountDetailsCtrl">
+    <h3>{{userProfile.displayName}}</h3>
+    <img ng-src="{{imageUrl}}"/>
+    <ul>
+        <li ng-repeat="email in userProfile.emails">
+            <b>{{email.type}}</b> {{email.value}}
+        </li>
+    </ul>
+    <b>Provider: </b> {{userProfile.provider}}
+</div>

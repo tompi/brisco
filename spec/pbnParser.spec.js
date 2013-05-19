@@ -27,8 +27,8 @@ describe('ruter71.pbn', function() {
     });
     it('should parse pair no 6 as Thomas and Nina', function() {
         var pair6 = _.find(t.pairs, function(p) {return p.no == 6;});
-        expect(pair6.sw).toEqual('Thomas Haukland');
-        expect(pair6.ne).toEqual('Nina Skoland Kaspersen');
+        expect(pair6.sw.name).toEqual('Thomas Haukland');
+        expect(pair6.ne.name).toEqual('Nina Skoland Kaspersen');
     });
     it('should parse first result of board 10 as 2HX', function() {
         var res = _.find(t.boards, function(b) {return b.no == 10;});

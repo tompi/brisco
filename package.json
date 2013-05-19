@@ -1,7 +1,7 @@
 {
   "name": "dupliscore",
   "description": "Bridge Scoring app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "dependencies": {
     "express": "3.x",
@@ -16,15 +16,17 @@
     "redis": "*",
     "mongodb": "*",
     "xregexp": "*",
-    "grunt": "*",
-    "grunt-cli": "*",
-    "grunt-contrib-less": "*",
-    "grunt-jasmine-node": "*",
-    "grunt-contrib-jshint": "*",
     "iconv": "*",
     "memory-cache": "*",
     "q": "*",
     "underscore": "*"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-less": "*",
+    "grunt-jasmine-node": "*",
+    "grunt-contrib-jshint": "*"
   },
   "engines": {
     "node": "0.8.x",

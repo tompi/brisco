@@ -33,6 +33,11 @@ exports.setupRoutes = function(app, db) {
             res.send(tournament);
         });
     });
+    app.get('/api/myaccount', ensureAuthenticated, function(req, res) {
+        db.user.findById(req.user.id, function(item) {
+            res.send(item);
+        });
+    });
 
     /*     app.get('/api/tournament/create', ensureAuthenticated, function(req, res) {
          db.tournament.create(req.user, req.body.name, req.club, function(tournamentId) {
